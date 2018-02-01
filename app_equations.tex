@@ -1,0 +1,26 @@
+\appendix{Equations}
+
+The general equations for Skewness, $S$, is
+
+\begin{equation}
+\label{eq:skewness}
+S = \frac{\sum_{i=1}^{N}\left (x_{i}-\bar{x} \right )^{3}}{N\sigma^{3}}
+\end{equation}
+
+\noindent
+and for Kurtosis, $K$, is 
+
+\begin{equation}
+\label{eq:kurtosis}
+K = \frac{\sum_{i=1}^{N}\left (x_{i}-\bar{x} \right )^{4}}{N\sigma^{4}}
+\end{equation}
+
+\noindent
+where $x$ is an individual data point, $\bar{x}$ is the data mean, $\sigma$ is the standard deviation, and $N$ is the number of data points \citep{Cristelli2012}.    Some Kurtosis formulas apply a correction term of ``-3" to Eq \ref{eq:kurtosis} (called excess Kurtosis) in order to bias the equation to obtain K = 0 for a normal distribution.  Kurtosis may also be calculated as shown in eq \ref{eq:xskurtosis}.
+
+\begin{equation}
+\label{eq:xskurtosis}
+K = \frac{N(N+1)}{(N-1)(N-2)(N-3)} \frac{\sum_{i=1}^{N}\left (x_{i}-\bar{x} \right )^{4}}{\sigma^{4}}
+\end{equation}
+
+The first term, $(N(N+1))/((N-1)(N-2)(N-3))$, is approximately 1/N for large values of N (N$>$200), thus reducing eq \ref{eq:xskurtosis} down to eq \ref{eq:kurtosis} \citep{Cox2010}.

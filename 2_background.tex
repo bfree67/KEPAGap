@@ -1,0 +1,305 @@
+\chapter{Background}
+
+\section{Data Quality and Statistical Analysis}
+
+Statistical analysis of time series and categorical data begins with the collection of raw data. Raw data comes from a sensor and includes several metadata parameters that describe where and how the data was collected. An example of a raw data source might be a nitrogen dioxide (NO$_{2}$ measuring instrument located at an air monitoring station. The monitor might read $20$ but without metadata, the reading is useless. Necessary metadata includes units ($ppb$), time average (1 hr), time of measurement (1pm - 2pm), day of measurement (15 Jan 2018), location of measurement (Ahmadhi station), and type of instrument (Environment SA chemiflourescent) at the very least.
+
+Since most raw data is collected autonomously, the data must be reviewed prior incorporating the data into the historical dataset. Typical errors that occur in data streams include:
+
+\begin{itemize}
+\item \textbf{Missing data.} If a measurement is not recorded due to the system being down or offline, the datalogger may record the time slot as a blank, thus making gaps in the data set. Missing data can be a problem if too many gaps exist, thus biasing summary statistics, such as averages, to represent the data recorded, not the actual population.
+\item \textbf{Misplaced data.} Sometimes an error occurs and the data-logging system shifts columns, putting a string or date formatted value into a field expecting a number. This might also be a problem if the measuring system records a text value such as NaN (not a number) or LDL (below detection level) to highlight system problems. If used directly, analytical software would not be able to recognize the data set and return errors during calculations.
+\item \textbf{Censored measurements.} Briefly mentioned above for Misplaced data, censored measurements are readings below the level of detection of the instrument. If they are ignored or replaced with zeros, the resulting values could skew and bias the summary statistics.
+\item \textbf{Outliers.} These are values that do not represent a possible range of results given the conditions, such as a temperature reading of 12 degrees Celsius in June at noon. Outliers can be caused by instrument errors, equipment failures, or special conditions, such as parking a truck next to the air monitoring station so it records abnormally high levels of NO$_{2}$. Outliers can also be real events, hence they are important to recognize in order to keep or discard.
+\item \textbf{Spelling errors.} Databases cannot recognise the difference between $\mu g/m^{3}$ and  $\mu g/m3$ - they see it as two different units. Simple mistakes in spelling, especially during manual data transfers.  It is therefore essential that categorical data use consistent spellings in order to be properly accounted for during searches and queries.
+
+\end{itemize}
+
+\subsection{Data integrity}
+Data management is critical to insuring data integrity due to the heavy reliance decision makers place on analyzed outputs. The term "Garbage in - garbage out" was adopted in the early 1950s at the beginning of automated data management when data sets could no longer be visually inspected or manually calculated. Allowing questionable or bad data into the analysis stream created inaccurate or misleading results. From the analysts point of view, bad data was worse than no data because of the misinterpretations. If the output was expected to be bad, it could still be used with the proper risk assignments. More damaging were Type II errors in which the output was bad, but was not recognized as bad. In this case, the "garbage in" leads to "gold out", as management accepts processed results with little scrutiny. While error exists everywhere in the data generation process, minimizing that error through proper data processing and cleaning before it is used for analysis can greatly reduce bad results.
+
+The process of converting raw data to validated or consistent data that can be used for analysis is shown in Figure \ref{fig:datachain}.
+%
+\begin{figure}[!htpb]
+\centering
+\includegraphics[width=0.25\linewidth,keepaspectratio]{images/datachain.png} 
+\caption{Data value chain process.}
+\label{fig:datachain}
+\end{figure}
+%
+Raw data is first checked for spelling errors and field violations. Once data is checked for errors, it becomes technically correct data (TCD) that has correctly formatted values in proper columns. At this point, the TCD can be used by statistical analysis software packages, or can be modified to account for missing data, censored measurements, and outliers.
+
+Missing data is corrected using imputation techniques \citep{Horton2007, Ellington2015}. Many techniques exist, however the key to all data processes it consistency. If one technique is used on a dataset, the technique should be applied to the whole dataset. Similarly, there are several methods to replace censored measurements with a non-zero value in order to reduce summary biasing \citep{Helsel2011}.
+
+\subsection{Summary statistics}
+Most data consists of hundreds or thousands of individual data points. For time series data, the data also has sequential order. Since it is difficult to describe the the shape of the data, we use summary statistics to describe the major attributes of a data set. The set is predefined, such as a month's worth of one hour measurements, or an annual measurement. By defining the time scale of the data we want to describe, we also define the number of samples within that dataset.
+
+Typical summary statistics include the sample set mean and standard deviation (s). The minimum and maximum value are also often given. The mean and s often assume that the underlying distribution is Normal, resembling a bell curve. This assumption, while not technically accurate, is often used if these statistics are provided without a distribution.
+
+As an example, Table \ref{tab:diffdata} shows the impact to the mean and s depending on the state of the raw data. The first column on the left shows the actual values of the sample set. The other three columns represent possible raw data scenarios of missing data, censored measurements (in this case the level of detection is $<$5), a combination of both missing and censored measurements. 
+
+\begin{table}[!htpb]
+\centering
+\caption{Example of how summary statistics are impacted by data inputs.}
+\label{tab:diffdata}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{Sample \#} & \textbf{Original} & \textbf{With missing} & \textbf{Censored} & \textbf{Missing and censored} \\ \midrule
+1 & 7.17 & 7.17 & 7.17 & 7.17 \\
+2 & 5.14 &  & 5.14 &  \\
+3 & 4.97 & 4.97 & 0 & 0 \\
+4 & 4.96 & 4.96 & 0 & 0 \\
+5 & 5.29 & 5.29 & 5.29 & 5.29 \\
+6 & 4.96 & 4.96 & 4.96 & 4.96 \\
+7 & 9.97 & 9.97 & 9.97 & 9.97 \\
+8 & 22.91 &  & 22.91 &  \\
+9 & 6.84 & 6.84 & 6.84 & 6.84 \\
+10 & 9.74 & 9.74 & 9.74 & 9.74 \\
+11 & 17.89 & 17.89 & 17.89 & 17.89 \\
+12 & 33.38 &  & 33.38 &  \\
+13 & 13.58 &  & 13.58 &  \\
+14 & 4.21 & 4.21 & 0 & 0 \\
+15 & 4.22 & 4.22 & 0 & 0 \\
+\textbf{Samples} & 15 & 11 & 15 & 11 \\
+\textbf{Mean} & 10.35 & 7.29 & 9.12 & 5.62 \\
+\textbf{s} & 8.42 & 4.06 & 9.51 & 5.63 \\
+\textbf{Median} & 6.84 & 5.29 & 6.84 & 5.29 \\
+\textbf{Skewness} & 1.85 & 2.04 & 1.38 & 0.88 \\
+\textbf{Kurtosis} & 3.14 & 4.59 & 1.83 & 0.81 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+For missing data, the samples are not counted, while censored measurements converted to zero, the sample is counted. This is important due to the way the statistics are calculated. The sample mean, $\bar{x}$, is estimated as
+
+\begin{equation}
+\bar{x} = \frac{1}{n}\sum_{i = 1}^{n}x_{i}
+\end{equation}
+
+\noindent
+where $n$ is the number of samples and $x_{i}$ is the individual sample value. The mean of the data is independent of the underlying distribution. The same cannot be said about the s. In most cases, the distribution is assumed to be Normal and the s is estimated as
+
+\begin{equation}
+s = \sqrt{\frac{1}{n-1}\sum_{i = 1}^{n}(x_{i}-\bar{x})^{2}}
+\end{equation}
+
+The values have to be called estimates because the exact parameters that describe the data, and systems they represent, are not known. When the underlying distribution is not Normal, additional statistics are needed to describe the data set.  Additional descriptive statistics include:
+
+\begin{itemize}
+\item \textbf{Median} - this is a measure of central tendency of data in an ordered list. Unlike the mean, the median is not influenced by extreme values. In a set of samples with a Normal distribution, the median and mean will be equal.
+\item \textbf{Skewness (S)} - this measures the asymmetry of the distribution curve relative to a Normal distribution. A sample with a skewness $\>0$ has its distribution tail shifted to one side of the other. Samples from a Normal distribution have a skewness of 0 \citep{Cox2010, Cristelli2012}.
+\item \textbf{Kurtosis (K)} - this measures the "curviness" of a distribution referenced against the curve of a Normal distribution given as 3. Kurtosis values $<$3 tend to be flatter and values $>$3 tend to be sharper \citep{Cox2010, Cristelli2012}.
+\end{itemize} 
+
+Examples of different skewness and kurtosis statistics in distributions is shown in Figure \ref{fig:distr}. Additionally, medians, skewness and kurtosis were calculated for the sample sets in Table \ref{tab:diffdata}. Without graphing the data values, it is clear that the sample is highly assymetrical since the means are not equal to the medians. These statistics can also be used to for statistical tests of data to see if the data is Normal. 
+%
+\begin{figure}[!htpb]
+\centering
+\includegraphics[width=0.5\linewidth,keepaspectratio]{images/aqz1.png} 
+\caption[Different sample distributions with different Skewness and Kurtosis values.]{Different sample distributions with different Skewness and Kurtosis values. The blue, solid line curve shows a normal distribution with $S$ = 0 and $K$ = 3. The green dot-dash line shows a Weibull distribution with $S$ = 1.7 and $K$ = 7.4.  The red dash line shows a log-normal distribution with $S$ = 4 and $K$ = 41. }
+\label{fig:distr}
+\end{figure}
+%
+Difference of distributions with various $S$ and $K$ values are shown below in Figure \ref{fig:distr}.  If the samples are Normal, other statistical tests can be performed to determine if the data is statistically significant for decision making purposes. Statistical testing, such as Analysis of Variance (ANOVA), test of significance using the t-test and Z statistic.
+
+If data samples are not Normally distributed, other procedures should be used for statistical analysis. The most common method is to transform the data using a linear function such as a logarithm or exponent, to make the data Normal in the transform space. For large samples sizes ($>30$), the Central Limit Theorem (CLT) can be assumed. The CLT states that the computed values of the sample averages will be distributed Normally \citep{Freeman2017}. 
+
+\section{EPL 42/2014}
+
+EPL 42/2014 came into force on 14 Oct 2014 and brought with it many changes. While before this law, the primary function of KEPA was monitoring and industrial inspections, after the law, the primary function of KEPA changed to enforcement and compliance. The law includes 181 articles divided into nine sections and preamble as as shown in Table \ref{tab:EPL}.
+
+\begin{table}[!htpb]
+\centering
+\caption{Summary of EPL structure.}
+\label{tab:EPL}
+\begin{tabular}{@{}lc@{}}
+\toprule
+\textbf{Section} & \textbf{Articles} \\ \midrule
+Preamble & 1-15 \\
+Section One: Development \& Environment & 16-20 \\
+Section Two: Protection Of Ground Environment Against Pollution & 21-64 \\
+Section Four: Protection Of Water and Coastal Environment Against Pollution & 65-99 \\
+Section Five: Biodiversity & 100-110 \\
+Section Six: Environment Management & 111-157 \\
+Section Eight: Civil Liability \& Compensation for Environmental Damages & 158-168 \\
+Section Nine: Concluding Provisions & 169-181 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Key articles within the EPL include ambient air quality (Articles 55-56), the establishment of an Environment Police within the Ministry of Interior (MOI) (Articles 113-14), requirement for external stakeholders to monitor environmental systems and link their data streams to KEPA (Articles 116 \& 117), and requirements for all government agencies to establish environmental departments and conduct assessments on their operations (Articles 119-122).
+
+Of the 181 articles in the law, 30 articles (Articles 128-157) deal specifically with criminal penalties for violations. Fines range from 50 KD for littering, to over 1 million KD for illegally dumping nuclear wastes. Penalties also include jail time with a death penalty for illegal nuclear waste dumping. A list of penalties from the original EPL is shown in Table \ref{tab:penalties}.
+
+\begin{table}[!htpb]
+\centering
+\caption{List of penalties for EPL violations}
+\label{tab:penalties}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}clccl@{}}
+\toprule
+\textbf{Article} & \textbf{Description} & \textbf{Min Fine (KD)} & \textbf{Max Fine (KD)} & \multicolumn{1}{c}{\textbf{Jail}} \\ \midrule
+16 & Environment outcome assessment studies & 5,000 & 50,000 &  \\
+17 & Requirement for business operations & 5,000 & 50,000 &  \\
+18 & Compliance required & 5,000 & 50,000 &  \\
+19 & Employee safety & 10,000 & 50,000 & $\le$ 3yrs \\
+20 & Ventilation requirement & 10,000 & 50,000 & $\le$ 3yrs \\
+21 & Production and Distribution of Chemicals in Kuwait & 10,000 & 50,000 & le 3yrs \\
+23 & Importing and Exporting Chemicals & 10,000 & 50,000 & $\le$ 3yrs \\
+25 & Nuclear waste & 500,000 & 1,000,000 & life or death \\
+27 & Export/Import Hazardous Waste & 20,000 & 200,000 & 3-10 yrs \\
+28 & Licensing for Hazardous Waste & 20,000 & 200,000 & 3-10 yrs \\
+29 & Hazardous Waste Disposal & 20,000 & 200,000 & 3-10 yrs \\
+30 & Solid municipal wastes & 20,000 & 200,000 & 3-10 yrs \\
+31 & Hazardous Waste Register & 10,000 & 50,000 & 1-3 yrs \\
+33 & Containers & 50 & 500 &  \\
+35 & Connection to sewage waste water networks & 10,000 & 50,000 & 1-3 yrs \\
+40 & Use of camp sites & 250 & 5,000 &  \\
+41 & Use of agricultural lands & 250 & 5,000 &  \\
+43 & Prohibition of organic chlorine insecticides & 10,000 & 50,000 & $\le$ 3yrs \\
+52 & Emission monitoring by sources & 30,000 & 150,000 &  \\
+54 & Noise & 500 & 5,000 &  \\
+56 & Tobacco use & 50 & 250,000 &  \\
+58 & Import/export ozone depleting substances & 10,000 & 50,000 & 1 yr \\
+59 & Manufacture ODSs & 10,000 & 50,000 & 1 yr \\
+60 & Manufacture using ODSs & 10,000 & 50,000 & 1 yr \\
+61 & Halon bank & 10,000 & 50,000 & 1 yr \\
+62 & Montreal Protocol banned items & 10,000 & 50,000 & 1 yr \\
+63 & Repairing items using ODSs & 1,000 & 5,000 & .5 yr \\
+64 & Disposal of ODS containers & 1,000 & 5,000 & .5 yr \\
+70 & Spill response on ships & 10,000 & 50,000 &  \\
+72 & Sea dumping prohibition & 5,000 & 150,000 & .5 yrs \\
+73 & Unintentional sea dumping & 5,000 & 150,000 & .5 yrs \\
+74 & Sea dumping prohibition for non ships & 5,000 & 150,000 & .5 yrs \\
+75 & Sea dumping during oil operations in restricted areas & 5,000 & 150,000 & .5 yrs \\
+76 & Spill clean up & 5,000 & 150,000 & .5 yrs \\
+78 & Shipping records for ships carrying hazardous waste & 10,000 & 40,000 &  \\
+79 & Shipping records for ships carrying oil & 10,000 & 40,000 &  \\
+80 & Spill notification & 10,000 & 50,000 &  \\
+81 & Marine bylaws requirements & 10,000 & 100,000 &  \\
+95 & Fresh water approvals and checks & 100 & 1,000 &  \\
+97 & Coastal rock and sand removal & 2,000 & 20,000 &  \\
+100 & Hunting and fishing limits & 500 & 50,000 & 1 - 3 yrs \\
+101 & CITES & 5,000 & 50,000 & 1-3 yrs \\
+105 & Introduction of foreign species & 500 & 5,000 & 1 yr \\
+126 & False news or rumours & 5,000 & 50,000 &  \\
+127 & Real estate conditions & 250 & 5,000 &  \\
+173 & Notification of environmental crimes & 1,000 & 5,000 & 1 yr \\ \bottomrule
+\end{tabular}
+} %end resize
+\end{table}
+
+The severity of fines requires that due diligence be accomplished prior to convicting, or even accusing, a suspected violator. This requires case development, forensic analysis, and evidence management. For environmental crimes, most evidence takes the form of samples and laboratory analysis- both data generation-rich processes. Managing data in a secure environment with clear chain of custody and edit logs is therefore required if that data is used for prosecution.
+
+\subsection{By-laws and regulations}
+
+By-laws referred to in the original EPL were incrementally released from 2015 - 2017 as shown in Table \ref{tb:regulations}. The regulations were prepared to provide guidance for specific media and industries.
+
+\begin{table}[!htpb]
+\centering
+\caption{Issued regulations for EPL.}
+\label{tb:regulations}
+\begin{tabular}{@{}p{2cm}p{2cm}cp{6cm}@{}}
+\toprule
+\textbf{Kuwait Al-Yawm Issue} & \textbf{Resolution No} & \textbf{Date} & \textbf{Description} \\ \midrule
+1265 & 2 for 2015 & 7 Dec 2015 & Environmental and social impact assessments \\
+1298 & 5 of 2016 & 24 Jul 2016 & Regulations for Chemicals Management (Art 21-24) \\
+1298 & 6 of 2016 & 24 Jul 2016 & Regulation for conditions and controls of smoking in the closed and semi-closed places (Article 56) \\
+1298 & 7 of 2016 & 24 Jul 2016 & Regulation for protecting the wild and agricultural environment (Articles 40-47) \\
+1307 & 7 of 2016 & 25 Sep 2016 & Determining the natural preserved and protected areas and the owning and supervising authorities \\
+1312 & 8 of 2016 & 30 Oct 2016 & Regulation of reconciliation in the environmental violations \\
+1324 & 1 of 2017 & 22 Jan 2017 & Regulations for the Protection of the Land and Agricultural Environment \\
+1332 & 2 of 2017 & 21 Mar 2017 & Engineering and Environmental Requirements of Enterprises \\
+1336 & 3 of 2017 & 16 Apr 2017 & Regulation of Biological Diversity (Articles 100-110) \\
+1341 & 4 of 2017 & 21 May 2017 & Update for medical labs \\
+13421 & 2 of 2017 & 21 May 2017 & Regulations Concerning the Safety of Workers in all Facilities and the Adequate Ventilation in the Public Closed and Semi-closed Areas \\
+1344 & 6 of 2017 & 11 Jun 2017 & Regulations for hazardous, medical and municipal solid waste and sludge management (Articles 35-39) \\
+1345 & 8 of 2017 & 18 Jun 2017 & Regulations concerning the protection of external air from pollution \\
+1438 & 7 of 2017 & 2 Jul 2017 & Regulation on the environmental management \\
+1355 & 12 of 2017 & 27 Aug 2017 & Regulations of the Protection of Aquatic and Coastal Environment Against Pollution \\
+
+ & 11 of 2017 &  & Regulations of judicial officers \\
+ & 9 of 2017 &  & Fees of entry of visitors to Khuwaysat Reserve (Jahraa)affiliated to Environment Public Authority \\
+ & 10 of 2017 &  & Accreditation fees of the engineering consultancy offices and houses qualified to design and implement the requirements stipulated in the regulations of smoking in enclosed and semi-enclosed public places \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+\section{Existing software}
+\subsection{Enterprise applications}
+
+KEPA uses several enterprise level EIMS in addition to project management, document management, human resources and financial management programs. These include:
+
+\textbf{eMISK (environment Monitoring Information System for Kuwait)} – this is an enterprise level Geographic Information System (GIS) using ESRI ArcServer and ArcGIS solutions (\url{http://www.esri.com}) administered on local servers. Its main purpose is to consolidate environmental data and present it in graphical formats to support decision makers and stakeholders. eMISK includes GIS analysts as well as the software, and has initiated several ambitious projects to enhance its position in KEPA including characterization of the Kuwait bay and waste stream analysis of Kuwait. The underlying geodatabase supporting eMISK is divided in 11 domains as shown in Table \ref{tab:emiskdomains}
+
+\begin{table}[!htpb]
+\centering
+\caption{eMISK domains}
+\label{tab:emiskdomains}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+\textbf{No.} & \textbf{Domain} & Comments \\ \midrule
+1 & Atmospheric & TS \\
+2 & Biodiversity & TS\\
+3 & Energy & TS \\
+4 & Waste & TS\\
+5 & Hydrology \\
+6 & Marine & TS\\
+7 & Terrestrial & TS \\
+8 & MEW & Not Used \\
+9 & Industry & Not Used\\
+10 & Oil \& Gas & Not Used\\
+11 & Socioeconomic & Not Used\\ \bottomrule
+\end{tabular}
+\end{table}
+
+Currently, eMISK takes summary data sets directly from reporting departments and manually uploads it based on pre-formatted templates in Excel. A more thorough discussion of eMISK and its data formats is provided in Chapter 4.
+
+\textbf{Tableau} - Tableau (\url{http://www.tableau.com}) is business intelligence software that allows users to access the data layers in the geodatabase used by eMISK's domains in order to visualize and analyze data. The plan is to provide access to KEPA staff with varying access rights in order to let users work with data,including geospatial data, without expensive ArcGIS licenses. Tableau is also easier to use than ArcGIS. Some training has been provided to different departments, but agency wide roll-out has not happened.
+
+\textbf{AQMIS (Air Quality Management Information System)} – this is a stand-alone air management software developed by Lakes Environmental (\url{http://www.weblakes.com}) and implemented under the UNDP Kuwait Integrated Environmental Management project. It was initially hosted in KEPA but has since transferred to KISR under a joint agreement funded by the Kuwait Foundation for the Advancement of Science (KFAS). AQMIS is a fully web-enabled program that can be accessed anywhere. It includes a national emissions inventory based on individual emission sources, built in AERMOD air dispersion modeling, human health risk assessments, permit management, and reporting tools. The system can provide what-if analysis using different scenarios and calculate source apportionments for different receptors. AQMIS is currently hosted on a cloud server managed by Lakes Environmental and jointly operated with KISR. 
+
+\textbf{EQuIS (Environmental Quality Information System)} – EQuIS is a widely used environmental data management program made by Earthsoft, Inc (\url{http://www.earthsoft.com}) to collect different data sets using standardized EDD templates and input codes. The system was implemented as part of a contract to update water and waste regulations and operates on a local server. A specific Kuwait EDD was prepared to support data collection for environmental chemistry (water and soil results) as well as report hazardous waste generation, transfer and disposal available at (\url{http://earthsoft.com/products/edp/edp-format-for-kuwait-epa/}). Completed EDDs are checked using distributed reference tables and an EQuIS Data Processor (EDP) that all stakeholders can have for free. Checked EDDs are then processed into the EQuIS schema. EQuIS data has been quality checked and includes required metadata to insure complete analytical capabilities. Currently, the EDD format and EDP checker have been distributed to all stakeholders, but training is required to encourage more submittals. EQuIS is the only application in use that is currently out of date with its software maintenance.
+
+\textbf{Envista Air Resources Manager (ARM)} - Envista ARM by Envitech, Ltd (\url{http://www.envitech.co.il}) is used to capture time series data from the fixed site air monitoring stations. The Envista ARM sends the raw data to eMISK for near real time visualization of concentrations. It also stores the raw data in a SQL Server database until it cleaned. The TCD is then pushed to an eMISK domain for final population. 
+
+
+\textbf{Electronic Services System (National Ozone Unit)} - this system was developed for KEPA by Diyar United Company (\url{http://www.diyarme.com}) using Microsoft Sharepoint to track companies purchasing and using ozone depleting substances. The system does not currently track trained and licensed technicians. A screenshot of the portal is shown in Figure \ref{fig:ozone-unit}.
+
+%
+\begin{figure}[!htpb]
+\centering
+\includegraphics[width=0.5\linewidth,keepaspectratio]{images/ozone-unit.png} 
+\caption{National Ozone Unit Electronic Services portal}
+\label{fig:ozone-unit}
+\end{figure}
+%
+
+\textbf{Environment Violations Payment E-Services} - this system was also developed for KEPA by Diyar United Company and allows compliance officers to track payments of issued NOVs. The system tracks violators based on civil ID numbers and EPL article number. There is a field for business name but no unique facility ID or geolocation metadata. The majority of processed fines are for public smoking violations under EPL Article 56.
+
+\subsection{Desktop applications}
+
+Each department uses different desktop applications depending on their requirements. All work stations have Microsoft Office products (2013 or later) with the primary analytical tool being Microsoft Excel. Other applications included:
+
+\textbf{EQuIS Data Processor (EDP)} - EDP is a stand alone application produced by Earthsoft, Inc and freely distributed. It uses reference tables and EDD format files specific to the data being collected (in this case the Kuwait EDD) and checks the EDD populated with raw data for errors. If error-free and TCD, the data can be packaged (by compressing) and sent to the EQuIS schema for inclusion. The user can also save the checked TCD for local use.
+
+\textbf{IPCC Emissions Inventory} - The Climate Change unit uses the IPCC supplied Emissions Inventory software developed by Spirit, Inc (\url{http://www.spirit.sk/}).  The software allows for Tier 1 inventories and the ability to export results using Excel. The software provides IPCC distributed emission factors to using the general equation
+
+\begin{equation}
+GHG = \frac{ABD}{10^{6}} - Z
+\end{equation}
+
+\noindent
+where A is the annual consumption of the process fuel in Gigagrams (Gg), B is an energy conversion factor in TerraJoules (TJ)/Gg, D is the GHG conversion factor in kg/TJ, and Z is the process amount captured in Gg.
+
+\subsection{System summary}
+A basic summary of the different EISs currently in use at KEPA is shown in Figure \ref{fig:existing} along with methods of data transfer and responsible units. The pathways without an Excel icon assume an internet based link or some for of direct data exchange that does not involve exporting through a third party software (such as Excel).
+
+%
+\begin{figure}[!htpb]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/existing-net.png} 
+\caption{Summary of existing EIS architectures at KEPA.}
+\label{fig:existing}
+\end{figure}
+%
+
+Figure \ref{fig:existing} shows that the systems in use do not communicate with each other, either directly (as with the air stations and the Envista ARM) or via spreadsheets. In some cases, the data submittal is duplicated, where the summary data from the Central Lab goes directly to eMISK, while the raw data is sent to EQuIS via EDP checking. Several of the individual EISs do not link with eMISK at all, requiring hard-copy requests for reports if data sets are required.
