@@ -20,10 +20,14 @@ chapterinoneline, % Uncomment to place the chapter title next to the number on o
 %\usepackage[backend=biber,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style 
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex}
 \addbibresource{kepagap.bib}
-
+\usepackage{pdfpages}
 \usepackage{xcolor}
 \usepackage{lineno}
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+\usepackage[titletoc]{appendix}
+\usepackage{float} %% for table placements
+
+\usepackage{draftwatermark}  %%%%%%%%%%%% Turn off for final version
 
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
@@ -54,6 +58,7 @@ chapterinoneline, % Uncomment to place the chapter title next to the number on o
 \hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
 \hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
 }
+
 %-------------------------------BEGIN DOCUMENT ---------------------------------------------
 \begin{document}
 
@@ -81,7 +86,6 @@ chapterinoneline, % Uncomment to place the chapter title next to the number on o
 \HRule \\[0.4cm] % Horizontal line
 {\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
 \HRule \\[1.5cm] % Horizontal line
- 
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushleft} \large
 \emph{Author:}\\
@@ -96,7 +100,7 @@ chapterinoneline, % Uncomment to place the chapter title next to the number on o
  
 \vfill
 
-%\groupname\\\deptname\\[2cm] % Research group name and department name
+ Report 0096804-1 \\
  
 \vfill
 {\large \today}\\[2cm] % Date 
@@ -145,22 +149,12 @@ Copyright \copyright 2018
 \include{1_introduction}
 \include{2_background}
 \include{3_organization}
-\include{4_dataprocessing}
+\include{4_gapresults}
 \include{5_recommendations}
 
 \end{linenumbers} %turn off for final edit
 \clearpage
 
-%----------------------------------------------------------------------------------------
-%	THESIS CONTENT - APPENDICES
-%----------------------------------------------------------------------------------------
-\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
-
-% Include the appendices of the thesis as separate files from the Appendices folder
-% Uncomment the lines as you write the Appendices
-%\include{Appendices/AppendixA}
-%\include{Appendices/AppendixB}
-%\include{Appendices/AppendixC}
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
@@ -168,6 +162,15 @@ Copyright \copyright 2018
 \printbibliography[heading=bibintoc]
 \clearpage
 %----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	 APPENDICES
+%----------------------------------------------------------------------------------------
+%\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+\begin{appendices}
+\include{app_survey}
+%\include{app_surveyusers}
+%\include{Appendices/AppendixC}
+\end{appendices}
 
 
 \end{document}  

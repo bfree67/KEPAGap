@@ -1,11 +1,376 @@
-\chapter{Organization Requirements}
-
-\section{KEPA requirements}
+\chapter{KEPA Organization Requirements}
 
 KEPA recently underwent an organizational change in October 2017 in order to establish a better internal structure that could meet their responsibilities under the EPL. This chapter describes the new structure and the environmental information requirements of each office within the new organization.  During the course of collecting data for this report, several of the office heads and staff were interviewed and given an online survey to complete. 
 
-\subsection{KEPA organization}
+\section{KEPA organization}
 
-\subsection{KEPA User Survey}
+KEPA is managed by a Director General (DG) with several Direct Reporting Sections and three divisions reporting directly to him. Two divisions, Environmental Monitoring Affairs (EMA) and Technical Affairs (TA), provide the operational sections within KEPA and were the primary areas of investigation for this report. The third division, Administrative and Financial Affairs, provides necessary logistics and support functions, and includes the IT department. The organizational at the division and direct report level is shown in Figure \ref{fig:kepaorg}. 
+
+%
+\begin{figure}[!htpb]
+\centering
+\includegraphics[width=0.5\linewidth,keepaspectratio]{images/kepaorg2.png} 
+\caption{KEPA organization at the division and direct report level.}
+\label{fig:kepaorg}
+\end{figure}
+%
+
+The two operational divisions are shown in more detail in Figures \ref{fig:emaorg} and \ref{fig:taorg}. These figures show current departments and sections. These division and their subordinate departments and sections are described below. In the descriptions, the main roles and responsibilities of department levels are provided in regards to responsibilities to the EPL and data requirements.  Analytical software other than Excel is used by the departments is also included.
+
+\subsection{Environmental Monitoring Affairs Division (EMAD)}
+The EMAD contains 6 departments and 22 sections  responsible for air quality, waste management, environmental planning, hazardous materials, industrial inspections, and environmental data.  The structure is shown in  Figure \ref{fig:emaorg}.
+%
+\begin{figure}[!htpb]
+\centering
+\includegraphics[width=0.5\linewidth,keepaspectratio]{images/org-ema.png} 
+\caption{KEPA EMA Division showing departments and sections.}
+\label{fig:emaorg}
+\end{figure}
+%
+
+The 47 articles in the EPL that EMAD is responsible for through its departments are shown in Table \ref{tab:emadarts}.
+
+\begin{table}[!htpb]
+\centering
+\caption{Articles from the EPL that EMAD departments are responsible for.}
+\label{tab:emadarts}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Department} & \textbf{EPL Articles} \\ \midrule
+Air Quality \& Follow-Up & 48, 49, 50, 51, 52, 53, 57, 58, 59, 60, 61, 62, 63, 64 \\
+Chemical & 21, 22, 23, 24, 42, 43 \\
+Waste Management & 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38 \\
+Environmental Data & 116, 117, 118, 121, 122, 170, 173 \\
+Industrial Environment & 18, 19, 20, 165 \\
+Planning \&  EIA Development & 16, 17 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Air Quality \& Follow-Up Department (AQFUD)}
+The AQFUD includes 5 sections:
+
+\begin{itemize}
+\item \textbf{Outdoor Air Monitoring and Air Monitoring Station Maintenance Sections}  operates 13 fixed air monitoring stations throughout Kuwait along with 2 mobile stations. The air stations include measurement equipment using  chemiluminescence and differential optical absorption spectroscopy (DOAS) methods for gaseous pollutants. The data from individual sensors are collected into site dataloggers and fed through GSM links to an Envista ARM server. If links are down, the data logger stores data until it is manually downloaded and transferred to the Envista server. 
+
+\item \textbf{Air Pollutants Emissions Section} captures point, area and mobile source data to generate emissions inventories of hazardous air pollutants. The section primarily uses AQMIS to log source parameters and assign emission factors for individual processes. AQMIS can perform Tier 3 inventories. While Kuwait is not a signatory to the Convention on Long-Range Transboundary Air Pollution \citep{UN1979}, the section is preparing annual inventories based on industrial sectors and individual emission units. 
+
+\item \textbf{Climate Change Section} is responsible for preparing Kuwait's  national GHG inventories under IPCC methodologies and publishing National Communications in accordance with the requirements of  Non-Annex 1 countries under the United Nations Framework Convention on Climate Change (UNFCCC) \citep{unfccc2014}. Kuwait became a signatory of the UNFCC on 28 Dec 1994 and issued their first National Communication (NC-1) on 21 Nov 2012 \citep{kepa2012}. As mentioned in Chapter 2, this section uses the IPCC Emissions Inventory software to compile a Tier 1 inventory from subject experts outside of the department. The IPCC software provides ranges of input for the energy conversion and GHG conversion factors in eq \ref{eq:GHGei}. Based on discussions with section staff, only default values are used. Inputs from external consultants are submitted on Excel worksheets and transferred to the IPCC software. Since the software is a desktop application, sections from different categories must be manually merged. While only IPCC emission factors are used by the section, IPCC allows the use of country specific factors for more detailed inventories \citep{ipcc2006}.
+
+\item \textbf{Ozone Management Section} manages the National Ozone Unit responsible for managing Kuwait's Ozone Depleting Substances (ODS) program in accordance with the Montreal Protocol to the Vienna Convention for the Protection of the Ozone Layer, which Kuwait signed on 23 Nov 1992 \citep{un1987}.  The section uses the Electronic Services System to track commercial request to import and export ODSs. The system is not linked to the Customs Office at the port of entry so requests must be hand-carried to the KEPA office for approval. Additionally, the system does not track training certificates of registered refrigerant technicians authorized to maintain systems that use ODSs.
+\end{itemize}
+
+\subsubsection{Chemical  Department}
+The Chemical Department manages the import, export and bulks storage of hazardous materials in Kuwait. The 3 sections in the department include:
+
+\begin{itemize}
+\item \textbf{Chemical Safety Section} provides guidance for on-site chemical storage and transportation of hazardous materials.
+
+\item \textbf{Chemical  Licensing Section} approves chemicals and hazardous materials for use in Kuwait. Part of their responsibilities is to define what chemicals need approvals and registration.  Like the Ozone section, the Chemical Licensing Section works closely with the Customs Office at Ports of Entry. New material imports are required to be tested prior to release by a contracted lab. The lab results are sent to KEPA as hard copies or pdf attachments. The section uses a Chemical Managment software that tracks chemical import/export requests. Requests do not include an industrial code or Chemical Abstract Service (CAS) number.
+
+\item \textbf{Chemical  Manufacturing Section} oversees production of chemicals (non-hydrocarbons) in Kuwait by industrial agencies. Registration of companies and materials is through Excel worksheets. Information is not currently provided to eMISK.
+
+\end{itemize}
+
+\subsubsection{Waste Management Department}
+The Waste Management Department oversees all forms of waste in Kuwait including municipal, universal, hazardous, medical, industrial, and nuclear wastes. It is currently being assisted by the  Fraunhofer Institute for Environmental, Safety and Energy Technology (UMSICHT) to characterize waste streams and improve its waste tracking system. Many of the obvious findings in this gap analysis will be corrected by this project.
+
+An EQuIS-based waste tracking system was implemented under the Compliance Information Management System (CIMS) project in 2016 but was not fully deployed. The EQuIS system uses templates built into the KEDD to track waste from the Generator to the Transporter and finally to the Receiver.
+
+\textbf{Disposal Section} manages landfills including the contractor operated industrial waste landfill in West Shuaiba and the liquid waste processing facility in Wafra as well as monitoring landfills. Monitoring consists of collecting usage data from the municipalities that operate the landfills. A closed landfill in Qurain is monitored for methane emissions and has a gas generator on-site that burns the collected gases. Usage data was not available.
+
+\textbf{Waste Violations Section} works with the Environment Police to identify and unauthorized dumping and waste transfer activities. Data is collected in Excel and other office products.
+
+\textbf{Industrial Waste Section} tracks manifests and disposal logs generated by industries disposing wastes through the licenses disposal facilities. Data currently comes to the section in pdf and excel files without waste stream information.
+
+\textbf{Medical Waste Section} tracks medical wastes disposed of the Ministry of Health. Waste manifests are reported in pdf and Excel formats.
+
+\subsubsection{Environmental Data Department}
+The Environmental Data Department was re-organized during the October 2017 re-organization in order to align itself with EPL responsibilities. Most notably was the inclusion of a section for environmental statistics. The department and sections manage and operate the  eMISK system and can be differentiated from other departments with their @eMisk.org email domains.  
+
+\textbf{Environmental Standards \& Statistics Section} receives datasets from other sections based on eMISK domain layers. The layers and data fields were provided by the individual departments and include pre-formatted templates to standardize data uploads. The templates are similar in concept to the EDDs used by EQuIS but only capture summary data. The system is designed to accept TCD and validated data, as it has limited data checking capabilities. Because the system only receives summary data (except for ambient air concentration data), review of the raw data requires going back to the generating section.
+
+\textbf{Environmental Database Section} manages and administrates the eMISK and Tableau servers.
+
+\textbf{Environmental Emergencies Section} responds to spills and incidents by providing necessary decision support tools to senior management and on-scene commanders such as identification of sensitive areas and dispersion model results. Notification of incidents usually takes place with a phone call or Whatsapp message.
+
+\textbf{Environmental Assessments \& Status Section} conducts GIS-based research to baseline environmental conditions and changes.
+
+\subsubsection{Industrial Environment Department}
+
+The Industrial Environment Department conducts site inspections and compliance audits of facilities based on the EPL. The environmental officers can issue fines and bring in the Environment Police for criminal cases. KEPA has not implemented an operating permit program that registers known emission generators and discharge points in order to give stakeholders standards of performance to be audited against. Audit reports are completed in Microsoft Word and Excel. Section include:
+
+\textbf{Waste Control Section}
+
+\textbf{Indoor Environment Section}
+
+\textbf{Environmental Work Section}
+
+\subsubsection{Planning \&  EIA Development Department}
+
+The Planning \& EIA Development Department reviews and approves all environmental and social impact studies. Reports are tracked independently using an in-house project management software provide by the IT department. No data is provided to eMISK. Sections within the depart include:
+
+\textbf{ Environmental Planning Section}
+
+\textbf{Industrial Projects Section}
+
+\textbf{Developmental Projects Section}
+
+\subsection{Technical Affairs Division (TAD)}
+The TAD contains 5 departments and 12 sections  responsible for laboratory analysis, water quality, biodiversity, coastal management, and desertification.  The structure is shown in  Figure \ref{fig:taorg}.
+%
+\begin{figure}[!htpb]
+\centering
+\includegraphics[width=0.5\linewidth,keepaspectratio]{images/org-ta.png} 
+\caption{KEPA TA Division showing departments and sections.}
+\label{fig:taorg}
+\end{figure}
+%
+The 52 articles in the EPL that TAD is responsible for through its departments are shown in Table \ref{tab:tadarts}.
+
+\begin{table}[!htpb]
+\centering
+\caption{Articles from the EPL that TAD departments are responsible for.}
+\label{tab:tadarts}
+\begin{tabular}{@{}p{6cm}p{6cm}@{}}
+\toprule
+\textbf{Department} & \textbf{EPL Articles} \\ \midrule
+Inspection & 54, 55, 56, 76, 77, 78, 79, 80, 82 \\
+Water Pollution Monitoring & 39, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 81, 83, 88, 89, 90, 91, 92, 93, 94, 95, 96, 108, 109, 110, 111 \\
+Coastal \& Desertification Monitoring & 40, 41, 44, 45, 46, 47, 97, 99 \\
+Conservation of Biodiversity & 100, 101, 102, 103, 104, 105, 106, 107 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Analytical Laboratory Department}
+
+The Analytical Laboratory Department receives samples from other departments - mainly the Water Pollution Monitoring and Conservation of Biodiversity departments. The lab operates the EQuIS system. The department is responsible for issuing lab standards for private labs as well as inspecting the labs for quality standards. The sections include:
+
+\textbf{Quality Control \& Equipment Section} tracks equipment maintenance and calibration schedules, as well as conduct quality checks on sample management, chain of custody, and methodologies.
+
+\textbf{Laboratory Section} conducts analytic chemistry on samples and reports results back to the source. This section does not report results to eMISK directly, but generates the raw data that is collected in EQuIS.
+
+\textbf{Biological Lab Section} conducts analytical chemistry on biological assays. Like the Laboratory Section, this section does not report directly to eMISK but send the results back to the source on Excel. This section does not use EQuIS and stored raw data on local Excel files.
+
+\textbf{ Sand Lab Section} conducts analytical chemistry on soils and aggregate. Like the Laboratory Section, this section does not report directly to eMISK but send the results back to the source on Excel. This section does not use EQuIS and stored raw data on local Excel files.
+
+\subsubsection{Inspection Department}
+
+\textbf{Governorates Section} conducts health inspections on restaurants, food service providers and food markets throughout the country. In each district, there is an office with local responsibilities. Reports are prepared in Word and submitted through email as attachments. Historical reports and actions must be searched manually through hard copies and ledgers.
+
+\subsubsection{Water Pollution Monitoring Department}
+
+The Water Pollution Monitoring Department collects samples from sea, coastal, ground, treatment plant discharges, and drinking water points throughout the country. Samples are sent to the Laboratory Section for analysis and reported to eMISK.
+
+\textbf{Water Pollution Section} collects monthly samples from inland sources such as drinking water points, waste water treatment plants, storm water discharge points, and groundwater wells.
+
+\textbf{Marine Support Services Section} operates a series of 20 monitoring buoys that provide real time datasets directly to eMISK. The section also collects monthly samples from 11 locations in the sea and 11 locations on the coast. Collected samples are sent the Laboratory Section for analysis and validated by the section before being summarized and reported to eMISK.
+
+\subsubsection{Coastal and Desertification Monitoring Department}
+The Coastal and Desertification Monitoring Department monitors changes to coastlines and construction taking place near the coast. It also monitors impacts of campsite use. The department uses Tableau, but does not have GIS access.  The sections include:
+
+\textbf{Coastal Section} monitors coastal deterioration and erosion by routinely surveying coastline profiles using transits and GPS. The results are provided to eMISK for visualization through Tableau. This section is also responsible for monitoring developments on the coasts, especially private construction on beaches. The section has the authority to fine owners and force demolition of unlicensed features such as docks and boat ramps. The section relies on remote imagery and visual inspection. 
+
+\textbf{Desertification Section} monitors deterioration at campsites and insures that users properly dispose of wastes and do not excavate pits for latrines or waste disposal. The section also oversees getch quarrying. This section does not report data to eMISK.
+
+\subsubsection{Conservation of Biodiversity Department}
+
+The Conservation of Biodiversity Department monitors the flora and fauna of Kuwait, including identifying habitat of endangered species and supporting the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CTES) to which Kuwait became a signatory on 12 Aug 2002 \citep{cites2002}. The department coordinates closely with the Public Authority of Agriculture Affairs and Fish Resources (PAAF) and KISR.
+
+\textbf{Marine Organism Monitoring Section} collects samples of macroalgae, meiofauna, phytoplankton, and zooplankton for analysis at the Biological Lab Section. Analysis consists of classification and counts. Bioassays from fish are also analyzed for toxins and bacteria.
+
+\textbf{Wildlife Monitoring Section} monitors terrestrial flora and fauna, including migrating birds. Monthly counts are collected from subject matter experts and compiled for eMISK. The reports are in Excel.
+
+\textbf{Natural Reserves Section} monitors the designated natural reserve areas in Kuwait and its islands for poachers, damages, and encroachment. This section works with the Environment Police if there are incidents and only reports changes to (reductions or additions) to the reserves to eMISK.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{KEPA User Survey}
+An on-line survey was prepared in English to capture KEPA user's exposure to EISs and statistical analysis software. The survey was prepared using kwiksurveys.com and a link was provided to users: \url{https://kwiksurveys.com/s/MLmvJzvT}. The survey consisted of 16 questions. A translated guide of the survey was provided to respondents in order to clarify the survey, but the survey itself was completed in English.
+
+The first 8 questions provided demographic information. The rest of questions asked about familiarity with different software and training experiences.  A total of 33 each KEPA staff members responded to the survey. A summary of the results are shown below. The complete report is shown in Appendix A.
+
+\subsection{Respondent demographics}
+All 33 respondents answered the 8 demographic questions with the majority of the respondents women (69.7\%). Most of the respondents had a bachelors degree in a science, engineering or math major (90.9\%). Most had worked at KEPA for 3 years or longer (78.8\%) and had been in their current position for one year or longer (72.7\%). Most of the respondents considered their English skills to be Fair or better (average 96\%) and almost everyone who took part in the survey preferred to learn and use software in English instead of Arabic (93.9\%). When asked about this, the typical explanation was that the Arabic translation of the English word or phrase used for the software function often made no sense. The results of the demographics portion is shown in Table \ref{tb:gapdemographics}.
+
+\begin{table}[!htpb]
+\centering
+\caption{Demographics for KEPA EIS user survey.}
+\label{tb:gapdemographics}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lrll@{}}
+\toprule
+\multicolumn{4}{l}{1. Sex} \\
+ & Male & 30.3\% &  \\
+ & Female & 69.7\% &  \\
+\multicolumn{4}{l}{2. Highest education} \\
+ & High School & 18.2\% &  \\
+ & Bachelors & 60.6\% &  \\
+ & Masters & 15.2\% &  \\
+ & PhD & 6.1\% &  \\
+\multicolumn{4}{l}{3. Academic Major} \\
+ & Engineering (Chemical, Computers, Electrical, Industrial, Mechanical) & 24.2\% &  \\
+ & Science (Chemistry, Meteorology, Physics) & 27.3\% &  \\
+ & Biology (Microbiology, Marine, Zoology) & 30.3\% &  \\
+ & Information Technology & 3.0\% &  \\
+ & Business & 6.1\% &  \\
+ & Law & 0.0\% &  \\
+ & Math, Statistics & 9.1\% &  \\
+ & Liberal Arts (Languages, Literature, Art) & 0.0\% &  \\
+\multicolumn{4}{l}{4. Time at KEPA?} \\
+ & \textless 1 year & 12.1\% &  \\
+ & 1 - 3 years & 9.1\% &  \\
+ & 3 - 5 years & 9.1\% &  \\
+ & 5 - 10 years & 15.2\% &  \\
+ & 10 - 15 years & 21.2\% &  \\
+ & \textgreater 15 years & 33.3\% &  \\
+\multicolumn{4}{l}{5. How long at current position?} \\
+ & \textgreater 6 months & 6.1\% &  \\
+ & 6 - 12 months & 21.2\% &  \\
+ & 1 - 3 years & 21.2\% &  \\
+ & 3 - 5 years & 21.2\% &  \\
+ & \textgreater 5 years & 30.3\% &  \\
+\multicolumn{4}{l}{6. How are your English skills?} \\
+ & \textbf{Poor} & \textbf{Fair} & \textbf{Excellent} \\
+ &Written 3.0\% & 60.6\% & 36.4\% \\
+ &Listening  0.0\% & 57.6\% & 42.4\% \\
+ &Speaking  9.1\% & 54.5\% & 36.4\% \\
+\multicolumn{4}{l}{7. I am comfortable using software in English.} \\
+ & Yes & 93.9\% &  \\
+ & No & 6.1\% &  \\
+\multicolumn{4}{l}{8. Nationality} \\
+ & I am Kuwaiti & 90.9\% &  \\
+ & I am not Kuwaiti & 9.1\% &  \\ \bottomrule
+\end{tabular}
+} %end resize
+\end{table}
+
+\subsection{Desktop analytical software}
+Respondents were asked to describe their familiarity with desktop  analytical software. The list of applications provided are shown in Table \ref{tb:desktop}. The list includes common statistical packages as well as popular high level programming languages that are commonly used in academic and industrial research. 
+
+\begin{table}[!htpb]
+\centering
+\caption{Desk top results}
+\label{tb:desktop}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}ccl@{}}
+\toprule
+\textbf{Application} & \textbf{Provider} & \textbf{Description} \\ \midrule
+Excel & Microsoft & Spreadsheet application \\
+Access & Microsoft & Desktop database \\
+Minitab & Minitab, Inc & Statistical analysis application \\
+SAS & SAS Institute & Statistical analysis application \\
+SPSS & IBM & Statistical analysis application \\
+Matlab & MathWorks & High level numeric programming language \\
+R & R Core Team & Statistics based object oriented language \\
+Python & Python Software Foundation & A high-level programming language for general-purpose programming. \\
+ArcGIS & ESRI & GIS with spatial analysis capabilities \\
+Google Earth & Google & GIS visualization tool \\ \bottomrule
+\end{tabular}
+} %end resize
+\end{table}
+
+Respondents were asked to choose a level of familiarity with each application ranging from being unfamiliar with the software to being a Power User. For this question set, only 29 responses were logged. Other than the Microsoft products and Google Earth, most of the respondents (average 76\%) were unfamiliar with the applications listed. A small group stated Power User status for Minitab (3.4\%), SPSS (6.9\%) and ArcGIS (3.4\%).  The results of this evaluation are shown in Table \ref{tb:desktopsummary}.
+
+\begin{table}[!htpb]
+\centering
+\caption{Summary of desktop analytical software survey.}
+\label{tb:desktopsummary}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Application} & \textbf{Not Familiar} & \textbf{Use infrequently} & \textbf{Use often} & \textbf{Power user} \\ \midrule
+Microsoft Excel & 6.9\% & \textbf{34.5\%} & \textbf{34.5\%} & 24.1\% \\
+Microsoft Access & \textbf{44.8\%} & 37.9\% & 13.8\% & 3.4\% \\
+Minitab & \textbf{75.9\%} & 13.8\% & 6.9\% & 3.4\% \\
+SAS & \textbf{89.7\%} & 6.9\% & 3.4\% & 0.0\% \\
+SPSS & \textbf{58.6\%} & 27.6\% & 6.9\% & 6.9\% \\
+Matlab & \textbf{72.4\%} & 20.7\% & 6.9\% & 0.0\% \\
+R & \textbf{82.8\%} & 13.8\% & 3.4\% & 0.0\% \\
+Python & \textbf{86.2\%} & 10.3\% & 3.4\% & 0.0\% \\
+ArcGIS & \textbf{69.0\%} & 20.7\% & 6.9\% & 3.4\% \\
+Google Earth & 10.3\% & 17.2\% & \textbf{44.8\%} & 27.6\% \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Analytical enterprise information systems}
+
+Analytical enterprise information systems were treated the same as desktop systems, except for a smaller list. The list only include AQMIS, EQuIS and Tableau - as these were supposed to be the most widely deployed systems within KEPA. Other systems were not known about at the time of the survey release, or were outside the study scope (such as financial management systems). Of the 26 responses, 44.8\% had used Tableau in one capacity or another, while small groups (3.4\%) claimed Power User status for AQMIS and EQuIS. A summary of results for analytical enterprise software is provided in Table \ref{tab:enterprisesumm}.
+
+\begin{table}[!htpb]
+\centering
+\caption{Summary of analytical enterprise software survey.}
+\label{tab:enterprisesumm}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Application} & \textbf{Not familiar} & \textbf{Used infrequently} & \textbf{Used often} & \textbf{Power User} \\ \midrule
+AQMIS & 62.1\% & 24.1\% & 10.3\% & 3.4\% \\
+EQuIS & 72.4\% & 24.1\% & 0.0\% & 3.4\% \\
+Tableau & 55.2\% & 44.8\% & 0.0\% & 0.0\% \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Software training experiences}
+In this last section, responders were asked to rate training received by third party vendors on analytical enterprise software. For this question, 26 responses were logged. In most cases, the responders did not use the software and had no training. For those who had training, the responses were generally unfavourable - either the training was inadequate or they felt they needed more training. The results of training from third parties is shown in Table \ref{tab:training1}.
+
+\begin{table}[!htpb]
+\centering
+\caption{Results of training from third parties on analytical enterprise software.}
+\label{tab:training1}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Application} & \textbf{Not trained} & \textbf{Inadequate training} & \textbf{More training needed} & \textbf{Well trained} \\ \midrule
+AQMIS & 65.4\% & 23.1\% & 3.8\% & 7.7\% \\
+EQuIS & 84.6\% & 3.8\% & 11.5\% & 0.0\% \\
+Tableau & 73.1\% & 19.2\% & 7.7\% & 0.0\% \\ \bottomrule
+\end{tabular}
+} %end resize
+\end{table}
+
+A secondary question to Table \ref{tab:training1} was to ask the respondents their impression of the course and instructor. This was meant to be a general impression of courses taken and not to necessarily consider a specific course. The responents had favorable impressions of the courses and instructors, with only a minority (average of 35.6\% disagreeing with the evaluation statements. The summary of the third party course evaluations is shown in Table \ref{tab:training2}.
+
+\begin{table}[!htpb]
+\centering
+\caption{Results of training course evaluations.}
+\label{tab:training2}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lclccc@{}}
+\toprule
+\textbf{Evaluation Criteria} & \textbf{Strongly Disagree} & \textbf{Disagree} & \textbf{Neutral} & \textbf{Agree} & \textbf{Strongly Agree} \\ \midrule
+Course content was comprehensive & 26.9\% & 7.7\% & 23.1\% & \textbf{30.8\%} & 11.5\% \\
+Instructor was organized and knowledgeable & 26.9\% & 11.5\% & \textbf{34.6\%} & 19.2\% & 7.7\% \\
+Course material was useful & 23.1\% & 11.5\% & \textbf{30.8\%} & 26.9\% & 7.7\% \\ \bottomrule
+\end{tabular}
+} %end resize
+\end{table}
+
+The final question requested respondents to select software they would be interested in receiving additional training in. The respondent could pick as many (or as few) as desired. The most popular applications were AQMIS and Tableau in which 42.4\% of the respondents presented interest. Least interest were in the high level languages R and Python. Table \ref{tab:interest} ranks the applications in order of popularity.
+
+\begin{table}[!htpb]
+\centering
+\caption{Results of follow-on interest for additional training on statistical analysis software.}
+\label{tab:interest}
+\begin{tabular}{@{}cc@{}}
+\toprule
+\textbf{Application} & \textbf{Interest} \\ \midrule
+AQMIS & 42.4\% \\
+Tableau & 42.4\% \\
+Microsoft Access & 36.4\% \\
+Microsoft Excel & 33.3\% \\
+SPSS & 33.3\% \\
+Minitab & 30.3\% \\
+Google Earth & 30.3\% \\
+EQuIS & 30.3\% \\
+Matlab & 27.3\% \\
+ArcGIS & 24.2\% \\
+SAS & 21.2\% \\
+Python & 18.2\% \\
+R & 15.2\% \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Internal survey results}
+The internal survey showed that KEPA staff have basic knowledge of data management systems (Excel and Google Earth) and use these applications on a regular basis. Other, more specialized software packages, such as Minitab and SPSS, were not widely used. One reason to explain the lack of use of specialized statistical analysis tools is that KEPA does not provide licenses for these applications. This implies that there is not an internal requirement for this type of software. A follow-on impact of not having statistical analysis software is that staff is not familiar with statistical testing and validation processes, or that standardized statistical methods are carried out on data sets. While it is possible to do statistical testing on Excel, the process requires advanced users to set up the equations. Of the respondents, 24.1\% described themselves as Power Users that could be capable of setting up the necessary spreadsheets. Another option could be using Excel add-ins such as DecisionTools from Palisades (\url{www.palisades.com}) or XLStat by Addinsoft (\url{www.xlstat.com}) to provide easy to access statistical tools.  These products also require software licenses and may not be widely distributed. The upcoming deployment of Tableau will enhance visualization of time series and geospatial data but will not provide statistical analysis. Rapid and widespread (and free) use of powerful analytical capabilities are available in R and Python packages, however there is little interest in these applications. The drivers behind this perception was not investigated but are assumed to be a combination of lack of familiarity with the products and perceived complexity concerning their use. 
 
 \section{External stakeholder requirements}
+
+

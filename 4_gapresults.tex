@@ -1,0 +1,139 @@
+\chapter{Data and System Analysis}
+
+\section{EIS analysis results}
+Based on the roles and responsibilities of the different operational sections in Chapter 3, primary information systems requirements were determined and compared to existing applications. The requirements were scored based on adequacy of functionality to meet the section requirements. The scoring system used is shown in Table \ref{tab:funcclass}.
+
+\begin{table}[H]
+\centering
+\caption{Evaluation rating system for section information system functionality.}
+\label{tab:funcclass}
+\begin{tabular}{@{}lc@{}}
+\toprule
+\textbf{Evaluation} & \textbf{Indicator} \\ \midrule
+System meets section information processing requirements & Yes \\
+System meets some of the section's requirements & Partial \\
+System does not meet requirements & No \\
+No system deployed to meet requirements & N/A \\ \bottomrule
+\end{tabular}
+\end{table} 
+
+Requirements classified as Partial, No or N/A have descriptions of the discrepancies.
+
+\subsection{EMAD EIS functionality analysis}
+
+The results of EIS functionality for sections in EMAD are shown in Table \ref{tab:emadeis}.
+
+\begin{table}[H]
+\centering
+\caption{Summary of EMAD EIS functionality requirements and assets.}
+\label{tab:emadeis}
+\begin{tabular}{llcc}
+\textbf{Section} & \textbf{Requirement} & \textbf{Current SW} & \textbf{Adequacy} \\
+Outdoor air monitoring & Datalogger & Envista ARM & Yes \\
+Air Pollutant Emissions & Emissions Inventory & AQMIS & Yes \\
+Climate Change & GHG Emissions Inventory & IPCC EI & Yes \\
+Ozone Mgmt & ODS tracking and management & Electronic Services System & Partial \\
+Air monitoring station maintenance & Datalogger & Envista ARM & Yes \\
+Chemical licensing & Chemical User Registry & Excel & Partial \\
+Chemical manufacturing & Chemical Manufacturer Registry & Excel & Partial \\
+Environmental Standards \& Statistics & Analytical Statistics and GIS & ArGIS and Tableau & Yes \\
+Environmental Databases & GIS and Geodatabase & ArGIS and Tableau & Yes \\
+Environmental emergencies & Incident Reporting and Management System & Excel & No \\
+Environmental Assessments \& Status & Analytical Statistics and GIS & ArGIS and Tableau & Yes \\
+Waste control & Compliance Mgmt System & Excel & No \\
+Indoor environment & Compliance Mgmt System & Excel & No \\
+Environmental work & Compliance Mgmt System & Excel & No \\
+Chemicals & Compliance Mgmt System & Excel & No \\
+Environmental Planning & Project tracking & Project Mgmt Program & Partial \\
+Industrial Projects & Project tracking & Project Mgmt Program & Partial \\
+Developmental Projects & Project tracking & Project Mgmt Program & Partial \\
+Disposal & Waste Management System & EQuIS Waste & Not Used \\
+Waste Violations & Compliance Mgmt System & Excel & No \\
+Industrial Waste & Waste Management System & EQuIS Waste & Not Used \\
+Medical Waste & Waste Management System & EQuIS Waste & Not Used
+\end{tabular}
+\end{table}
+
+\subsection{TAD EIS  functionality analysis}
+The results of EIS functionality for sections in TAD are shown in Table \ref{tab:tadeis}.
+
+\begin{table}[H]
+\centering
+\caption{Summary of TAD EIS functionality requirements and assets.}
+\label{tab:tadeis}
+\begin{tabular}{@{}llcc@{}}
+\toprule
+\textbf{Section} & \textbf{Requirement} & \textbf{Current SW} & \textbf{Adequacy} \\ \midrule
+Desertification & Compliance Mgmt System & Excel & No \\
+Governorates & Compliance Mgmt System & Excel & No \\
+Coastal & Data visualization & Tableau & Yes \\
+Marine Organism Monitoring & Organism mgmt system, data visualization & Excel, Tableau & Partial \\
+Wildlife Monitoring & Organism mgmt system, data visualization & Excel, Tableau & Partial \\
+Water Pollution & Sample mgmt system, data visualization & Excel, Tableau & Partial \\
+Marine Support Services & Sample mgmt system, data visualization & Excel, Tableau & Partial \\
+Quality Control \& Equipment & LIMS & Excel & No \\
+Laboratory & LIMS and data management system & EQuIS & Partial \\
+Biological Lab & LIMS and data management system & EQuIS & Partial \\
+Sand Lab & LIMS and data management system & EQuIS & Partial \\
+Natural Reserves & Data visualization & Tableau & Yes \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Explanation of analysis discrepancies}
+
+For some sections receiving a Partial rating with data visualization requirements, Tableau fulfills the data visualization portion of the requirements. The negative rating comes from the non-visualization requirement.
+
+\subsubsection{Incident Reporting and Management System}
+Current incidents, including hazardous material spills, venting and flaring are issued through mobile phone and WhatsApp messages from stakeholders the KEPA. While WhatsApp chats can be emailed, this system does not provide necessary information needed for historical tracking and later analysis. 
+
+A basic incident management application is available on the Beatona website (\url{http://www.beatona.net/CMS/index.php}. The app allows an individual to identify a problem on a map, describe it and attached pictures of it. The map shows the status of reported incidents using a red-yellow-green indicators. The most current reported incident was submitted on 16 Jan 2013, forwarded to a department for action on 14 May 2014, and is still open. A screenshot the app is shown in FIgure \ref{fig:beatonat}.
+
+%
+\begin{figure}[!htpb]
+\centering
+\includegraphics[width=0.5\linewidth,keepaspectratio]{images/beatona.png} 
+\caption{Incident reporting on Beatona website.}
+\label{fig:beatonat}
+\end{figure}
+%
+
+A spill reporting EDD was provided with the KEDD for EQuIS that included geospatial data of the spill, type of spill material, estimated quantity, responsible party, and time/date of the spill. It did not provide fields for other incidents such as flaring and tank venting, but could be altered to fit different requirements. The stakeholder completes the Spill Reporting sheet in the EDD and either checks it with the EDP or emails to the proper section for inclusion. A more comprehensive system may be web accessible, allow document attachments, tracking capabilities, task assignments, and pre-formatted reports.
+
+\subsubsection{Compliance Mgmt System}
+
+
+\subsubsection{Waste Management System}
+
+
+\subsubsection{ODS tracking and management}
+The current Electronic Services System is effective for supporting ODS trading. Linking to a portal at the port of entry for immediate access by on-site customs officers could improve efficiency and costs by saving trips back and forth to the KEPA offices by stakeholders. Missing functionality in the system includes lack of training records for certified ODS technicians, operating permits of ODS processes, and emission inventories of ODSs actually used.
+
+\subsubsection{Chemical User Registry}
+
+
+\subsubsection{Chemical Manufacturer Registry}
+
+
+\subsubsection{Project tracking}
+
+
+\subsubsection{Organism mgmt system}
+
+
+\subsubsection{Water sample mgmt system}
+
+
+\subsubsection{LIMS}
+
+
+\subsubsection{Sample mgmt system}
+
+
+\subsubsection{Statistical data analysis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{KEPA sources}
+\subsection{Collected Data and Metadata}
+\subsection{Data formats}
+\subsection{Quality control and review}
+\section{KEPA deliverables}

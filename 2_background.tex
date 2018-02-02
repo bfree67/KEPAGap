@@ -59,7 +59,7 @@ As an example, Table \ref{tab:diffdata} shows the impact to the mean and s depen
 12 & 33.38 &  & 33.38 &  \\
 13 & 13.58 &  & 13.58 &  \\
 14 & 4.21 & 4.21 & 0 & 0 \\
-15 & 4.22 & 4.22 & 0 & 0 \\
+15 & 4.22 & 4.22 & 0 & 0 \\ \midrule
 \textbf{Samples} & 15 & 11 & 15 & 11 \\
 \textbf{Mean} & 10.35 & 7.29 & 9.12 & 5.62 \\
 \textbf{s} & 8.42 & 4.06 & 9.51 & 5.63 \\
@@ -111,6 +111,7 @@ EPL 42/2014 came into force on 14 Oct 2014 and brought with it many changes. Whi
 \centering
 \caption{Summary of EPL structure.}
 \label{tab:EPL}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lc@{}}
 \toprule
 \textbf{Section} & \textbf{Articles} \\ \midrule
@@ -123,13 +124,14 @@ Section Six: Environment Management & 111-157 \\
 Section Eight: Civil Liability \& Compensation for Environmental Damages & 158-168 \\
 Section Nine: Concluding Provisions & 169-181 \\ \bottomrule
 \end{tabular}
+} %end resize
 \end{table}
 
 Key articles within the EPL include ambient air quality (Articles 55-56), the establishment of an Environment Police within the Ministry of Interior (MOI) (Articles 113-14), requirement for external stakeholders to monitor environmental systems and link their data streams to KEPA (Articles 116 \& 117), and requirements for all government agencies to establish environmental departments and conduct assessments on their operations (Articles 119-122).
 
 Of the 181 articles in the law, 30 articles (Articles 128-157) deal specifically with criminal penalties for violations. Fines range from 50 KD for littering, to over 1 million KD for illegally dumping nuclear wastes. Penalties also include jail time with a death penalty for illegal nuclear waste dumping. A list of penalties from the original EPL is shown in Table \ref{tab:penalties}.
 
-\begin{table}[!htpb]
+\begin{table}[H]
 \centering
 \caption{List of penalties for EPL violations}
 \label{tab:penalties}
@@ -193,11 +195,12 @@ The severity of fines requires that due diligence be accomplished prior to convi
 
 By-laws referred to in the original EPL were incrementally released from 2015 - 2017 as shown in Table \ref{tb:regulations}. The regulations were prepared to provide guidance for specific media and industries.
 
-\begin{table}[!htpb]
+\begin{table}[H]
 \centering
 \caption{Issued regulations for EPL.}
 \label{tb:regulations}
-\begin{tabular}{@{}p{2cm}p{2cm}cp{6cm}@{}}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}p{2cm}p{2cm}cp{8cm}@{}}
 \toprule
 \textbf{Kuwait Al-Yawm Issue} & \textbf{Resolution No} & \textbf{Date} & \textbf{Description} \\ \midrule
 1265 & 2 for 2015 & 7 Dec 2015 & Environmental and social impact assessments \\
@@ -220,6 +223,7 @@ By-laws referred to in the original EPL were incrementally released from 2015 - 
  & 9 of 2017 &  & Fees of entry of visitors to Khuwaysat Reserve (Jahraa)affiliated to Environment Public Authority \\
  & 10 of 2017 &  & Accreditation fees of the engineering consultancy offices and houses qualified to design and implement the requirements stipulated in the regulations of smoking in enclosed and semi-enclosed public places \\ \bottomrule
 \end{tabular}
+} %end resize
 \end{table}
 
 
@@ -253,14 +257,13 @@ KEPA uses several enterprise level EIMS in addition to project management, docum
 
 Currently, eMISK takes summary data sets directly from reporting departments and manually uploads it based on pre-formatted templates in Excel. A more thorough discussion of eMISK and its data formats is provided in Chapter 4.
 
-\textbf{Tableau} - Tableau (\url{http://www.tableau.com}) is business intelligence software that allows users to access the data layers in the geodatabase used by eMISK's domains in order to visualize and analyze data. The plan is to provide access to KEPA staff with varying access rights in order to let users work with data,including geospatial data, without expensive ArcGIS licenses. Tableau is also easier to use than ArcGIS. Some training has been provided to different departments, but agency wide roll-out has not happened.
+\textbf{Tableau} - Tableau (\url{http://www.tableau.com}) is business intelligence software that allows users to access the data layers in the geodatabase used by eMISK's domains and other databases in order to visualize and analyze data. Tableau cannot populate or generate new data. The plan is to provide access to KEPA staff with varying access rights in order to let users work with data, including geospatial data, without expensive ArcGIS licenses. Tableau is also easier to use than ArcGIS. Some training has been provided to different departments, but agency wide roll-out has not happened. Tableau allows powerful graphical visualization but of time series data but does not have statistical tools for advanced analysis or data processing. Tableau can be linked to R in order to access the statistical functions this high level programming language offers \citep{tableau2018}. 
 
 \textbf{AQMIS (Air Quality Management Information System)} – this is a stand-alone air management software developed by Lakes Environmental (\url{http://www.weblakes.com}) and implemented under the UNDP Kuwait Integrated Environmental Management project. It was initially hosted in KEPA but has since transferred to KISR under a joint agreement funded by the Kuwait Foundation for the Advancement of Science (KFAS). AQMIS is a fully web-enabled program that can be accessed anywhere. It includes a national emissions inventory based on individual emission sources, built in AERMOD air dispersion modeling, human health risk assessments, permit management, and reporting tools. The system can provide what-if analysis using different scenarios and calculate source apportionments for different receptors. AQMIS is currently hosted on a cloud server managed by Lakes Environmental and jointly operated with KISR. 
 
 \textbf{EQuIS (Environmental Quality Information System)} – EQuIS is a widely used environmental data management program made by Earthsoft, Inc (\url{http://www.earthsoft.com}) to collect different data sets using standardized EDD templates and input codes. The system was implemented as part of a contract to update water and waste regulations and operates on a local server. A specific Kuwait EDD was prepared to support data collection for environmental chemistry (water and soil results) as well as report hazardous waste generation, transfer and disposal available at (\url{http://earthsoft.com/products/edp/edp-format-for-kuwait-epa/}). Completed EDDs are checked using distributed reference tables and an EQuIS Data Processor (EDP) that all stakeholders can have for free. Checked EDDs are then processed into the EQuIS schema. EQuIS data has been quality checked and includes required metadata to insure complete analytical capabilities. Currently, the EDD format and EDP checker have been distributed to all stakeholders, but training is required to encourage more submittals. EQuIS is the only application in use that is currently out of date with its software maintenance.
 
 \textbf{Envista Air Resources Manager (ARM)} - Envista ARM by Envitech, Ltd (\url{http://www.envitech.co.il}) is used to capture time series data from the fixed site air monitoring stations. The Envista ARM sends the raw data to eMISK for near real time visualization of concentrations. It also stores the raw data in a SQL Server database until it cleaned. The TCD is then pushed to an eMISK domain for final population. 
-
 
 \textbf{Electronic Services System (National Ozone Unit)} - this system was developed for KEPA by Diyar United Company (\url{http://www.diyarme.com}) using Microsoft Sharepoint to track companies purchasing and using ozone depleting substances. The system does not currently track trained and licensed technicians. A screenshot of the portal is shown in Figure \ref{fig:ozone-unit}.
 
@@ -275,6 +278,8 @@ Currently, eMISK takes summary data sets directly from reporting departments and
 
 \textbf{Environment Violations Payment E-Services} - this system was also developed for KEPA by Diyar United Company and allows compliance officers to track payments of issued NOVs. The system tracks violators based on civil ID numbers and EPL article number. There is a field for business name but no unique facility ID or geolocation metadata. The majority of processed fines are for public smoking violations under EPL Article 56.
 
+\textbf{Chemical Database} - need more info....
+
 \subsection{Desktop applications}
 
 Each department uses different desktop applications depending on their requirements. All work stations have Microsoft Office products (2013 or later) with the primary analytical tool being Microsoft Excel. Other applications included:
@@ -284,6 +289,7 @@ Each department uses different desktop applications depending on their requireme
 \textbf{IPCC Emissions Inventory} - The Climate Change unit uses the IPCC supplied Emissions Inventory software developed by Spirit, Inc (\url{http://www.spirit.sk/}).  The software allows for Tier 1 inventories and the ability to export results using Excel. The software provides IPCC distributed emission factors to using the general equation
 
 \begin{equation}
+\label{eq:GHGei}
 GHG = \frac{ABD}{10^{6}} - Z
 \end{equation}
 
@@ -291,7 +297,7 @@ GHG = \frac{ABD}{10^{6}} - Z
 where A is the annual consumption of the process fuel in Gigagrams (Gg), B is an energy conversion factor in TerraJoules (TJ)/Gg, D is the GHG conversion factor in kg/TJ, and Z is the process amount captured in Gg.
 
 \subsection{System summary}
-A basic summary of the different EISs currently in use at KEPA is shown in Figure \ref{fig:existing} along with methods of data transfer and responsible units. The pathways without an Excel icon assume an internet based link or some for of direct data exchange that does not involve exporting through a third party software (such as Excel).
+A basic summary of the different EISs currently in use at KEPA is shown in Figure \ref{fig:existing} along with methods of data transfer and responsible units. The pathways without an Excel icon assume an internet based link or some form of direct data exchange that does not involve exporting through third party software (such as Excel).
 
 %
 \begin{figure}[!htpb]
@@ -302,4 +308,4 @@ A basic summary of the different EISs currently in use at KEPA is shown in Figur
 \end{figure}
 %
 
-Figure \ref{fig:existing} shows that the systems in use do not communicate with each other, either directly (as with the air stations and the Envista ARM) or via spreadsheets. In some cases, the data submittal is duplicated, where the summary data from the Central Lab goes directly to eMISK, while the raw data is sent to EQuIS via EDP checking. Several of the individual EISs do not link with eMISK at all, requiring hard-copy requests for reports if data sets are required.
+Figure \ref{fig:existing} shows that the systems in use do not communicate with each other, either directly (as with the air stations and the Envista ARM) or via spreadsheets. In some cases, the data submittal is duplicated, such as where the summary data from the Central Lab goes directly to eMISK, while the raw data is sent to EQuIS via EDP checking. Several of the individual EISs do not link with eMISK at all, requiring hard-copy requests for reports if data sets are required.
