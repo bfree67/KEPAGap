@@ -1,0 +1,205 @@
+\chapter{Functionality Analysis}
+
+\section{Functionality analysis methodology}
+A functionality analysis looks at how well an application meets the requirements of the user. A high level programming like C++ or Python is very functional, but is not usable without considerable time and developmental resources. While a programming language could meet the user's need - eventually - but it is impractical to use, especially if a rapid solution is needed.
+
+Software being used to meet current EPL requirements were measured using six criteria:
+
+\begin{itemize}
+\item \textbf{Enterprise} measured whether the application was deployed on a server for shared access or installed on a personal workstation only. Enterprise applications received a 1, while desktop applications received a -1. 
+\item \textbf{Metadata} measured the applications ability to accept and store metadata and secondary information such as chain of custody and user access. Systems that could handle or collect metadata received a 1 while systems that coudl not received -1.
+\item \textbf{Configured} measured how well the application could be customized to local users needs. A configurable system that was tailored to specific KEPA requirement and country specific parameters received a 1. Non configurable systems for general use received a -1. It could be argued that Excel is configurable, however it would require considerable effort to design a specific application from it, in which case it would not be Excel, but an Excel application.
+\item \textbf{Raw Data} evaluated the ability of the system to receive raw data and process it before using it for reports. Allows for the ability to check data for errors and produce TCD. A system that could receive raw data was awarded a 1, a system that could not received -1. Systems that could handle some forms of raw data received a 0.
+\item \textbf{Search} described the ability of the application to search for specific records and past datasets. Systems with search or query functions received a 1 while systems without received -1.
+\item \textbf{Completeness} measured the built in functionality specific to the requirement. Completeness is for individual systems is described below in Table \ref{completeness}. Systems with full functionality relative to EPL requirements received a 2, while systems that had partial requirements received a 1 or 0. Systems that did not meet any requirements received a -1.
+\end{itemize}
+
+The individual scores for each category were summed for a total score. Functionality assessment was awarded based on the the total score as shown in Table \ref{tab:funcrange}.
+
+\begin{table}[H]
+\centering
+\caption{Functionality range for existing EIS applications}
+\label{tab:funcrange}
+\begin{tabular}{@{}lc@{}}
+\toprule
+\textbf{Functionality} & \textbf{Range} \\ \midrule
+Functionally complete (Yes) & 7 - 5 \\
+Partially complete (Partial) & 4 - -1 \\
+Does not meet requirements (No) & -2 - -6 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+The results of the Functionality analysis is shown in Table \ref{tab:FuncAnalysisEPL}. 
+
+
+%%%%%%%%%%%%%%% rotate page for big table
+
+\begin{landscape}
+
+\begin{table}[H]
+\centering
+\caption{Functional analysis of implied EIS requirements and existing EIS applications}
+\label{tab:FuncAnalysisEPL}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lccccccccc@{}}
+\toprule
+\textbf{EIS Requirement} & \textbf{Existing System} & \textbf{Enterprise} & \textbf{Metadata} & \textbf{Configured} & \textbf{Raw Data} & \textbf{Search} & \textbf{Completeness} & \textbf{Score} & \textbf{Functionality} \\ \midrule
+Air concentration DB & Envista ARM & 1 & 1 & 1 & 1 & 1 & 2 & 7 & Yes \\
+Marine sample DB & EQuIS & 1 & 1 & 1 & 1 & 1 & 2 & 7 & Yes \\
+Water sample Mgmt DB & EQuIS & 1 & 1 & 1 & 1 & 1 & 2 & 7 & Yes \\
+Air Mgmt DB & AQMIS & 1 & 1 & 1 & 0 & 1 & 2 & 6 & Yes \\
+Geospatial DB & ArcGIS & 1 & 1 & 1 & 0 & 1 & 2 & 6 & Yes \\
+Land Use/Agriculture registry & ArcGIS & 1 & 1 & 1 & 0 & 1 & 2 & 6 & Yes \\
+Land Use/Camp ground registry & ArcGIS & 1 & 1 & 1 & 0 & 1 & 2 & 6 & Yes \\
+Land Use/Coastal registry & ArcGIS & 1 & 1 & 1 & 0 & 1 & 2 & 6 & Yes \\
+Land Use/Natural Resources & ArcGIS & 1 & 1 & 1 & 0 & 1 & 2 & 6 & Yes \\
+Land Use/Plant registry & ArcGIS & 1 & 1 & 1 & 0 & 1 & 2 & 6 & Yes \\
+Land Use/Quarry registry & ArcGIS & 1 & 1 & 1 & 0 & 1 & 2 & 6 & Yes \\
+ODS Mgmt DB & ESS & 1 & 1 & 1 & 0 & 1 & 0 & 4 & Partial \\
+Compliance DB & Violations & 1 & 0 & 1 & -1 & 1 & 0 & 2 & Partial \\
+Statistical Analysis & Excel & -1 & 0 & -1 & 1 & -1 & 1 & -1 & Partial \\
+Building Database & Excel & -1 & 0 & -1 & 1 & -1 & 0 & -2 & No \\
+LIMS & Excel & -1 & 0 & -1 & 1 & -1 & 0 & -2 & No \\
+Chemical Mgmt DB & Excel & -1 & 0 & -1 & 1 & -1 & -1 & -3 & No \\
+Energy Mgmt DB & Excel & -1 & 0 & -1 & 1 & -1 & -1 & -3 & No \\
+Incident Mgmt DB & Excel & -1 & 0 & -1 & 1 & -1 & -1 & -3 & No \\
+Noise Mgmt DB & Excel & -1 & 0 & -1 & 1 & -1 & -1 & -3 & No \\
+Nuclear Waste Mgmt DB & Excel & -1 & 0 & -1 & 1 & -1 & -1 & -3 & No \\
+Organism Mgmt DB & Excel & -1 & 0 & -1 & 1 & -1 & -1 & -3 & No \\
+Waste Mgmt DB & Excel & -1 & 0 & -1 & 1 & -1 & -1 & -3 & No \\ \bottomrule
+\end{tabular}
+}%end resize
+\end{table}
+
+\end{landscape}
+
+\section{Completeness score}
+The Completeness score was determined by assigning functional criteria to each requirement and scoring the requirement with a 1 (meets the requirement) or 0 (does not meet the requirement). The criteria scores are added up and compared to the maximum score (total number of criteria).  The percentage of the score to the maximum forms the basis of award as shown below where $x$ is the percentage of the score divided by the maximum value.
+
+\centering
+\begin{tabular}{l}
+$x = 100\% \rightarrow 2$ \\
+$100\% <x \ge50\% \rightarrow 1$ \\
+$0<x <50\%\rightarrow 0 $\\
+$x=0\rightarrow -1$
+\end{tabular}
+
+
+The Completeness scores are shown in Table \ref{tab:completeness}.
+
+\begin{table}[H]
+\centering
+\caption{Calculation of Completeness score for Functionality Analysis}
+\label{tab:completeness}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}cclccc@{}}
+\toprule
+\textbf{Requirement} & \textbf{Existing SW} & \textbf{Functionality} & \textbf{Score} & \textbf{Max} & \textbf{Rating} \\ \midrule
+Air Mgmt DB & AQMIS & Emission unit level emissions inventory & 1 &  &  \\
+Air Mgmt DB & AQMIS & Add/update emission factors for specific chemical and process & 1 &  &  \\
+Air Mgmt DB & AQMIS & Calculate wide area dispersion models & 1 &  &  \\
+Air Mgmt DB & AQMIS & Quantified risk assessments & 1 &  &  \\
+Air Mgmt DB & AQMIS & Map sources and receptors & 1 &  &  \\
+Air Mgmt DB & AQMIS & Report by specific criteria & 1 &  &  \\
+Air Mgmt DB & AQMIS & Display air station data & 1 &  &  \\
+ &  & Air Mgmt DB completeness score & 7 & 7 & 2 \\
+ &  &  &  &  &  \\
+Geospatial DB & ArcGIS & Add/Update attribute tables & 1 &  &  \\
+Geospatial DB & ArcGIS & Associate different data sets with geospatial locations & 1 &  &  \\
+Geospatial DB & ArcGIS & Receive time series data sets & 1 &  &  \\
+ &  & Geospatial DB completeness score & 3 & 3 & \textbf{2} \\
+ &  &  &  &  &  \\
+Land Use/Agriculture registry & ArcGIS & Associate land use categories with geospatial locations & 1 &  &  \\
+ &  & Land Use/Agriculture registry completeness score & 1 & 1 & \textbf{2} \\
+ &  &  &  &  &  \\
+Land Use/Camp ground registry & ArcGIS & Associate designate  with geospatial locations & 1 &  &  \\
+ &  & Land Use/Camp ground registry completeness score & 1 & 1 & \textbf{2} \\
+ &  &  &  &  &  \\
+Land Use/Coastal registry & ArcGIS & Associate coastlines with geospatial locations & 1 &  &  \\
+Land Use/Coastal registry & ArcGIS & Link structures with contact information and responsible party & 1 &  &  \\
+Land Use/Coastal registry & ArcGIS & Allow for coast profiles and change analysis & 1 &  &  \\
+ &  & Land Use/Coastal registry completeness score & 3 & 3 & \textbf{2} \\
+ &  &  &  &  &  \\
+Land Use/Natural Resources & ArcGIS & Associate land use categories with geospatial locations & 1 &  &  \\
+ &  & Land Use/Natural Resources completeness score & 1 & 1 & \textbf{2} \\
+ &  &  &  &  &  \\
+Land Use/Plant registry & ArcGIS & Associate land use categories with geospatial locations & 1 &  &  \\
+ &  & Land Use/Plant registry completeness score & 1 & 1 & \textbf{2} \\
+ &  &  &  &  &  \\
+Land Use/Quarry registry & ArcGIS & Associate quarry locations and ownership with geospatial locations & 1 &  &  \\
+ &  & Land Use/Quarry registry completeness score & 1 & 1 & \textbf{2} \\
+ &  &  &  &  &  \\
+Air concentration DB & Envista ARM & Log time series of multiple data streams from different locations & 1 &  &  \\
+Air concentration DB & Envista ARM & Provide search and query features to locate specific data sets & 1 &  &  \\
+ &  & Air concentration DB completeness score & 2 & 2 & \textbf{2} \\
+ &  &  &  &  &  \\
+Marine sample DB & Excel & Capture sample collection metadata and analytical results & 1 &  &  \\
+Marine sample DB & Excel & Associate collected samples with physical location & 1 &  &  \\
+Marine sample DB & Excel & Provide search and query features to locate specific data sets & 1 &  &  \\
+ &  & Marine sample DB completeness score & 3 & 3 & \textbf{2} \\
+ &  &  &  &  &  \\
+Water sample Mgmt DB & Excel & Capture sample collection metadata and analytical results & 1 &  &  \\
+Water sample Mgmt DB & Excel & Associate collected samples with physical location & 1 &  &  \\
+Water sample Mgmt DB & Excel & Provide search and query features to locate specific data sets & 1 &  &  \\
+ &  & Water sample Mgmt DB completeness score & 3 & 3 & \textbf{2} \\
+ &  &  &  &  &  \\
+ODS Mgmt DB & ESS & Track export/import of ODS materials & 1 &  &  \\
+ODS Mgmt DB & ESS & List and search companies exporting and importing ODS material & 1 &  &  \\
+ODS Mgmt DB & ESS & Track training of certified technicians & 0 &  &  \\
+ODS Mgmt DB & ESS & Track consumption of ODS & 0 &  &  \\
+ &  & ODS Mgmt DB completeness score & 2 & 4 & \textbf{0} \\
+ &  &  &  &  &  \\
+Building Database & Excel & Track facility location and owner & 1 &  &  \\
+Building Database & Excel & Track industrial code and process & 0 &  &  \\
+ &  & Building Database completeness score & 1 & 2 & \textbf{0} \\
+ &  &  &  &  &  \\
+Chemical Mgmt DB & Excel & Track export/import of hazardous materials & 1 &  &  \\
+Chemical Mgmt DB & Excel & Track bulk storage areas & 0 &  &  \\
+Chemical Mgmt DB & Excel & Track approved chemicals and hazardous materials & 0 &  &  \\
+ &  & Chemical Mgmt DB completeness score & 1 & 3 & \textbf{0} \\
+ &  &  &  &  &  \\
+Incident Mgmt DB & Excel & Allow different type of incidents & 0 &  &  \\
+Incident Mgmt DB & Excel & Capture location, materials involved, associated parties & 0 &  &  \\
+Incident Mgmt DB & Excel & Allow for follow-up action tracking & 0 &  &  \\
+Incident Mgmt DB & Excel & Attach pictures and documents & 0 &  &  \\
+ &  & Incident Mgmt DB completeness score & 0 & 4 & \textbf{-1} \\
+ &  &  &  &  &  \\
+Noise Mgmt DB & N/A & Capture noise profiles for areas & 0 &  &  \\
+Noise Mgmt DB & N/A & Associate noise sources with locations & 0 &  &  \\
+Noise Mgmt DB & N/A & Track complaints by location, processes, and timestamp & 0 &  &  \\
+ &  & Noise Mgmt DB completeness score & 0 & 3 & \textbf{-1} \\
+ &  &  &  &  &  \\
+Nuclear Waste Mgmt DB & Excel & Register authorized user, suppliers, transporters and disposal facilities & 1 &  &  \\
+Nuclear Waste Mgmt DB & Excel & Track movement and disposal of wastes by type & 0 &  &  \\
+ &  & Nuclear Waste Mgmt DB completeness score & 1 & 2 & \textbf{1} \\
+ &  &  &  &  &  \\
+Waste Mgmt DB & Excel & Register authorized user, suppliers, transporters and disposal facilities & 1 &  &  \\
+Waste Mgmt DB & Excel & Track movement and disposal of wastes by type & 0 &  &  \\
+ &  & Waste Mgmt DB completeness score & 1 & 2 & \textbf{1} \\
+ &  &  &  &  &  \\
+Organism Mgmt DB & Excel & Capture sample collection metadata and analytical results & 1 &  &  \\
+Organism Mgmt DB & Excel & Associate collected samples with physical location & 0 &  &  \\
+Organism Mgmt DB & Excel & Provide search and query features to locate specific data sets & 0 &  &  \\
+ &  & Organism Mgmt DB completeness score & 1 & 3 & \textbf{0} \\
+ &  &  &  &  &  \\
+LIMS & Excel & Track instrument calibration and usage & 1 &  &  \\
+LIMS & Excel & Track analyte expiration dates & 0 &  &  \\
+LIMS & Excel & Track chain of custody of samples & 0 &  &  \\
+LIMS & Excel & Capture results and associated metadata & 1 &  &  \\
+LIMS & Excel & Prepare reports in EDD formats & 0 &  &  \\
+ &  & LIMS completeness score & 2 & 5 & \textbf{0} \\
+ &  &  &  &  &  \\
+Statistical Analysis & Excel & Provide easy import of different data file formats & 1 &  &  \\
+Statistical Analysis & Excel & Have standard descriptive statistical and transformation functions and graph capabilities & 1 &  &  \\
+Statistical Analysis & Excel & Have statistical test functions & 0 &  &  \\
+ &  & Statistical Analysis completeness score & 2 & 3 & \textbf{1} \\
+ &  &  &  &  &  \\
+Compliance DB & Violations & Capture violation fines & 1 &  &  \\
+Compliance DB & Violations & Track permit and facility operating conditions & 0 &  &  \\
+Compliance DB & Violations & Track past violations by facility & 0 &  &  \\
+Compliance DB & Violations & Track findings and assign responsibilities & 0 &  &  \\
+Compliance DB & Violations & Assign article or regulation to finding & 0 &  &  \\
+ &  & Compliance DB completeness score & 1 & 5 & \textbf{0} \\ \bottomrule
+\end{tabular}
+}%end resize
+\end{table}

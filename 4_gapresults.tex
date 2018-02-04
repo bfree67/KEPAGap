@@ -1,7 +1,44 @@
 \chapter{Data and System Analysis}
 
-\section{EIS analysis results}
-Based on the roles and responsibilities of the different operational sections in Chapter 3, primary information systems requirements were determined and compared to existing applications. The requirements were scored based on adequacy of functionality to meet the section requirements. The scoring system used is shown in Table \ref{tab:funcclass}.
+\section{Required EIS functionality}
+
+Key to evaluating the gaps in the current KEPA EIS environment is to identify the requirements KEPA needs in order to properly function. Based on the requirements of the EPL, certain functions are implied. Additionally, other functions are implied based on the work flows of different departments and best management practices from other national environmental agencies. Table \ref{tab:eisrqmt} shows a summary of required databases (DBs) and the articles within the EPL driving the requirement. Some databases, like Chemical and Waste Mgmt may share multiple functions such as facility IDs, industrial sector IDs, and chemical IDs. A common requirement for all DBs is the ability to associate datasets with a geospatial location that can identify it in a physical location. Some DB requirements not directly pertaining to environmental information, such as the Legal DB, Financial Mgmt DB, and Planning/Project DB were dropped from the analysis as out of scope. Their importance should not be discounted however.
+
+\begin{table}[H]
+\centering
+\caption{EIS requirements implied by EPL articles.}
+\label{tab:eisrqmt}
+\begin{tabular}{@{}p{6cm}p{6cm}@{}}
+\toprule
+\textbf{EIS Requirement} & \textbf{Supporting article} \\ \midrule
+Air mgmt DB & 48, 49, 50, 52, 53 \\
+Facility DB & 18, 19, 20, 127 \\
+Chemical mgmt DB & 21, 22, 23, 24, 42, 43 \\
+Compliance DB & 72, 73, 74, 75, 77, 78, 79, 81, 82, 83, 84, 85, 94, 98, 100, 101, 106, 108, 113, 124, 126, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 165 \\
+Geospatial DB & 170 \\
+Energy mgmt DB & 117, 122, 123 \\
+Air concentration DB & 51 \\
+Financial mgmt DB & 10, 11, 12, 13, 14, 15 \\
+Incident mgmt DB & 69, 70, 71, 76, 80, 86, 173 \\
+Land Use/Agriculture registry & 107 \\
+Land Use/Camp ground registry & 40 \\
+Land Use/Coastal registry & 97, 109, 110 \\
+Land Use/Natural Resources & 102, 103, 104 \\
+Land Use/Plant registry & 41 \\
+Land Use/Quarry registry & 44 \\
+Legal DB & 1, 2, 3, 4, 5, 9 \\
+Marine sample DB & 66, 68 \\
+Noise mgmt DB & 55 \\
+Nuclear Waste mgmt DB & 25, 26 \\
+ODS mgmt DB & 57, 58, 59, 60, 61, 62, 63, 64 \\
+Planning/Project DB & 16, 17, 45, 46, 54, 93, 99, 116 \\
+Waste mgmt DB & 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39 \\
+Water sample mgmt DB & 88, 89, 90, 91, 92, 95, 96 \\
+Organism mgmt DB & 105 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Based on the requirements established in Table \ref{tab:eisrqmt}, a functionality review of existing systems was conducted to determine if the existing systems had the functionality required to meet the KEPA responsibilities under EPL. The results were rated using the scoring system in Table \ref{tab:funcclass}.
 
 \begin{table}[H]
 \centering
@@ -17,7 +54,45 @@ No system deployed to meet requirements & N/A \\ \bottomrule
 \end{tabular}
 \end{table} 
 
-Requirements classified as Partial, No or N/A have descriptions of the discrepancies.
+Additional EIS requirements were added - LIMS (Laboratory Information Management System). This is required to manage equipment status and samples in the laboratories and statistical analysis software. While not specifically called out in the EPL, LIMS is essential to conduct analytical chemistry in support of the other activities, while statistical software is required for more complete analysis. The complete functionality analysis based required functions to meet the EPL is provided in Appendix B. The EPL functionality analysis summary is shown in Table \ref{tab:eplfunc}.
+
+\begin{table}[H]
+\centering
+\caption{EPL functionality analysis of existing EISs.}
+\label{tab:eplfunc}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{EIS Requirement} & \textbf{Existing System} & \textbf{Functionality} \\ \midrule
+Air concentration DB & Envista ARM & Yes \\
+Marine sample DB & EQuIS & Yes \\
+Water sample Mgmt DB & EQuIS & Yes \\
+Air mgmt DB & AQMIS & Yes \\
+Geospatial DB & eMISK & Yes \\
+Land Use/Agriculture registry & eMISK & Yes \\
+Land Use/Camp ground registry & eMISK & Yes \\
+Land Use/Coastal registry & eMISK & Yes \\
+Land Use/Natural Resources & eMISK & Yes \\
+Land Use/Plant registry & eMISK & Yes \\
+Land Use/Quarry registry & eMISK & Yes \\
+ODS Mgmt DB & ESS & Partial \\
+Compliance DB & Violations & Partial \\
+Statistical Analysis & Excel & Partial \\
+Building Database & Excel & No \\
+LIMS & Excel & No \\
+Chemical Mgmt DB & Excel & No \\
+Energy Mgmt DB & Excel & No \\
+Incident Mgmt DB & Excel & No \\
+Noise mgmt DB & N/A & No \\
+Nuclear Waste Mgmt DB & Excel & No \\
+Organism Mgmt DB & Excel & No \\
+Waste Mgmt DB & Excel & No \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Of the 23 EIS  requirements, 12 (52\%) do not meet EIS requirements due to individual deskstop applications (Excel) or don't have required functionality (training, user registries, industry codes). Only requirement, Noise mgmt, is entirely lacking. Some requirements, such as the Marine and Water Sample DBs, assume that the sections are using EQuIS. If they are not, then the functionality score drops to No.
+
+\section{EIS analysis results}
+Based on the roles and responsibilities of the different operational sections in Chapter 3, primary information systems requirements were determined and compared to existing applications. The requirements were scored based on adequacy of functionality to meet the section requirements. The scoring system used is shown in Table \ref{tab:funcclass}.
 
 \subsection{EMAD EIS functionality analysis}
 
@@ -27,8 +102,9 @@ The results of EIS functionality for sections in EMAD are shown in Table \ref{ta
 \centering
 \caption{Summary of EMAD EIS functionality requirements and assets.}
 \label{tab:emadeis}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{llcc}
-\textbf{Section} & \textbf{Requirement} & \textbf{Current SW} & \textbf{Adequacy} \\
+\textbf{Section} & \textbf{Requirement} & \textbf{Current SW} & \textbf{Functionality} \\
 Outdoor air monitoring & Datalogger & Envista ARM & Yes \\
 Air Pollutant Emissions & Emissions Inventory & AQMIS & Yes \\
 Climate Change & GHG Emissions Inventory & IPCC EI & Yes \\
@@ -52,6 +128,7 @@ Waste Violations & Compliance Mgmt System & Excel & No \\
 Industrial Waste & Waste Management System & EQuIS Waste & Not Used \\
 Medical Waste & Waste Management System & EQuIS Waste & Not Used
 \end{tabular}
+}%end resize
 \end{table}
 
 \subsection{TAD EIS  functionality analysis}
@@ -61,22 +138,24 @@ The results of EIS functionality for sections in TAD are shown in Table \ref{tab
 \centering
 \caption{Summary of TAD EIS functionality requirements and assets.}
 \label{tab:tadeis}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}llcc@{}}
 \toprule
 \textbf{Section} & \textbf{Requirement} & \textbf{Current SW} & \textbf{Adequacy} \\ \midrule
 Desertification & Compliance Mgmt System & Excel & No \\
 Governorates & Compliance Mgmt System & Excel & No \\
 Coastal & Data visualization & Tableau & Yes \\
-Marine Organism Monitoring & Organism mgmt system, data visualization & Excel, Tableau & Partial \\
-Wildlife Monitoring & Organism mgmt system, data visualization & Excel, Tableau & Partial \\
-Water Pollution & Sample mgmt system, data visualization & Excel, Tableau & Partial \\
-Marine Support Services & Sample mgmt system, data visualization & Excel, Tableau & Partial \\
+Marine Organism Monitoring & Organism Mgmt System, data visualization & Excel, Tableau & Partial \\
+Wildlife Monitoring & Organism Mgmt System, data visualization & Excel, Tableau & Partial \\
+Water Pollution & Sample Mgmt System, data visualization & Excel, Tableau & Partial \\
+Marine Support Services & Sample Mgmt System, data visualization & Excel, Tableau & Partial \\
 Quality Control \& Equipment & LIMS & Excel & No \\
-Laboratory & LIMS and data management system & EQuIS & Partial \\
-Biological Lab & LIMS and data management system & EQuIS & Partial \\
-Sand Lab & LIMS and data management system & EQuIS & Partial \\
+Laboratory & LIMS and Data Mgmt System & EQuIS & Partial \\
+Biological Lab & LIMS and Data Mgmt System & EQuIS & Partial \\
+Sand Lab & LIMS and Data Mgmt System & EQuIS & Partial \\
 Natural Reserves & Data visualization & Tableau & Yes \\ \bottomrule
 \end{tabular}
+}%end resize
 \end{table}
 
 \subsection{Explanation of analysis discrepancies}
@@ -100,40 +179,260 @@ A basic incident management application is available on the Beatona website (\ur
 A spill reporting EDD was provided with the KEDD for EQuIS that included geospatial data of the spill, type of spill material, estimated quantity, responsible party, and time/date of the spill. It did not provide fields for other incidents such as flaring and tank venting, but could be altered to fit different requirements. The stakeholder completes the Spill Reporting sheet in the EDD and either checks it with the EDP or emails to the proper section for inclusion. A more comprehensive system may be web accessible, allow document attachments, tracking capabilities, task assignments, and pre-formatted reports.
 
 \subsubsection{Compliance Mgmt System}
-
+A key feature proposed in the CIMS project was the implementation of a permit system that established standards of performance for individual facilities regarding the allowable amount and concentrations of wastes, emissions, and discharges it could generate over a set time period. This requires a compliance management system to track facilities, permitted activities, milestone dates, inspection results, and follow-up actions. Even without the permitting, a central system is needed to track inspections and findings. The system should include standardized industrial codes and geospatial data to assist in visualizing and prioritizing audits. The system should also track the status of findings (open, closed, in progress), the category of the finding (waste, air, water), the impact of the finding (severe, minor), and concerned parties. The system should be linked with the Environment Police so they can access relevant information as well.
 
 \subsubsection{Waste Management System}
-
+Currently, waste is being tracked as hazardous, non-hazardous, and medical wastes with not differentiation of waste streams with the 3 categories. There is no registry of generators, transporters, or receivers aside from the licensed landfills. Receivers could also include industries accepting recyclable hazardous waste as feedstock.
 
 \subsubsection{ODS tracking and management}
 The current Electronic Services System is effective for supporting ODS trading. Linking to a portal at the port of entry for immediate access by on-site customs officers could improve efficiency and costs by saving trips back and forth to the KEPA offices by stakeholders. Missing functionality in the system includes lack of training records for certified ODS technicians, operating permits of ODS processes, and emission inventories of ODSs actually used.
 
-\subsubsection{Chemical User Registry}
+\subsubsection{Chemical User  and Manufacturer Registry}
+The Chemical Department should have a common registry of chemical types, quantities and bulk storage locations, in addition to bulk users. This should include a unique registration ID that is common for other KEPA functions like waste generation - user of hazardous materials usually generate hazardous wastes. The system should include geospatial data as well as industrial code classification. EQuIS could be used for this registry initially. Users and manufacturers would be added as facilities and instead of submitting samples would submit inventories on a monthly or annual basis. The registry should be part of or linked to the compliance management system to record operating permits and licenses associated with hazardous material use and storage.
 
+\subsubsection{Organism Mgmt system}
+The Conservation of Biodiversity Department uses Excel to store counts of different flora and fauna categories. An EDD using EQuIS can be easily prepared to handle the different raw data counts the sections generate. Using EQuIS allows all raw data and metadata to be captured and stored in a central schema that can be accessed by eMISK for specific analysis and reports.
 
-\subsubsection{Chemical Manufacturer Registry}
+\subsubsection{Water sample Mgmt system}
+The Water Pollution Monitoring Department collects samples from several locations and tracks them through Excel. The department sections should be using EQuIS to submit field samples and assign a unique sample ID to each sample container. The sample ID is merged within EQuIS when the lab completes its analysis so that the results can be reviewed. Using EQuIS allows all raw data and metadata to be captured and stored in a central schema that can be accessed by eMISK for specific analysis and reports.
 
-
-\subsubsection{Project tracking}
-
-
-\subsubsection{Organism mgmt system}
-
-
-\subsubsection{Water sample mgmt system}
-
-
-\subsubsection{LIMS}
-
-
-\subsubsection{Sample mgmt system}
-
+\subsubsection{Laboratory Information Management System (LIMS)}
+The Analytical Laboratory Department currently operates without a LIMS. This is very difficult to do considering the number of instruments, analytes, methods, and samples the labs are responsible for. A LIMS tracks chain of custody of samples, calibration and expiration dates of certificates, and generates result reports. Additionally it stores the collected data for historical use. A LIMS is not the same as EQuIS, although there are some common data sets. The most important difference is that the LIMS is unique to the individual lab. It captures internal data, not data from other sources. EQuIS captures data from many sources including external stakeholders and third party labs. The KEPA LIMS would have to prepare EDDs similar to other labs and submit to EQuIS. With a LIMS, the format can be automatic.
 
 \subsubsection{Statistical data analysis}
+As noted in the survey results in Chapter 3, there is a lack of advanced statistical analysis software available for use in the sections. This can be easily resolved by installing R (\url{https://www.r-project.org/}) and Rstudio (\url{https://www.rstudio.com/}) - both freely available for download . Microsoft SQL Server 2017 come with R pre-installed. This method requires training to use the various functions properly. Commercial packages such as Minitab and SPSS are also available in desktop and enterprise editions. These packages also require training to properly use. One advantage R has is that scripts can be written for routine tasks that can be run automatically. Additionally R can run complex data science and machine learning processes that packaged software cannot (or with limited options). A similar case can be made for Python.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{KEPA sources}
+KEPA data comes from three sources: real time sensors, analytical results from samples, and findings from audits the main data received by each section is summarized in Table \ref{tab:sectiondata}.
+
+\begin{table}[H]
+\centering
+\caption{Summary of data collected by each section.}
+\label{tab:sectiondata}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}cllcc@{}}
+\toprule
+\textbf{Division} & \textbf{Department} & \textbf{Section} & \textbf{Data received} & \textbf{Format} \\ \midrule
+EMAD & Environmental Data & Environmental emergencies & Incident notifications & Social media \\
+EMAD & Industrial Environment & Waste control & Audit reports & Document \\
+EMAD & Industrial Environment & Indoor environment & Audit reports & Document \\
+EMAD & Industrial Environment & Environmental work & Audit reports & Document \\
+EMAD & Industrial Environment & Chemicals & Audit reports & Document \\
+EMAD & Waste Management & Waste Violations & Audit reports & Document \\
+EMAD & Waste Management & Disposal & Waste manifests & Document \\
+EMAD & Waste Management & Industrial Waste & Waste manifests & Document \\
+EMAD & Waste Management & Medical Waste & Waste manifests & Document \\
+EMAD & Air Quality and Follow-Up & Climate Change & GHG emissions & Excel \\
+EMAD & Air Quality and Follow-Up & Ozone Mgmt & ODS requests & Web \\
+EMAD & Chemical Safety & Chemical licensing & Chemical licenses & Document \\
+EMAD & Chemical Safety & Chemical manufacturing & Chemical licenses & Document \\
+EMAD & Planning and  EIA Development & Environmental Planning & EIA reports & Document \\
+EMAD & Planning and  EIA Development & Industrial Projects & EIA reports & Document \\
+EMAD & Planning and  EIA Development & Developmental Projects & EIA reports & Document \\
+EMAD & Air Quality and Follow-Up & Outdoor air monitoring & Air concentration & Streaming data \\
+EMAD & Air Quality and Follow-Up & Air Pollutant Emissions & Emission source data & Excel \\
+EMAD & Air Quality and Follow-Up & Air monitoring station maintenance & Air concentration & Streaming data \\
+EMAD & Environmental Data & Environmental Standards \& Statistics & Datasets & Excel \\
+EMAD & Environmental Data & Environmental Databases & Datasets & Attribute tables \\
+EMAD & Environmental Data & Environmental Assessments \& Status & Datasets & Excel \\
+TAD & Coastal \& Desertification Monitoring & Desertification & Surveys and imagery & Imagery \\
+TAD & Inspection & Governorates & Audit reports & Document \\
+TAD & Coastal \& Desertification Monitoring & Coastal & Surveys and imagery & Imagery \\
+TAD & Conservation of Biodiversity & Marine Organism Monitoring & Organism counts & Excel \\
+TAD & Conservation of Biodiversity & Wildlife Monitoring & Organism counts & Excel \\
+TAD & Water Pollution Monitoring & Water Pollution & Samples, Bouy Monitors & Excel, Streaming Data \\
+TAD & Water Pollution Monitoring & Marine Support Services & Samples & Excel \\
+TAD & Analytical Laboratory & Quality Control \& Equipment & Quality data & Excel \\
+TAD & Analytical Laboratory & Laboratory & Samples & Excel \\
+TAD & Analytical Laboratory & Biological Lab & Samples & Excel \\
+TAD & Analytical Laboratory & Sand Lab & Samples & Excel \\
+TAD & Conservation of Biodiversity & Natural Reserves & Imagery & Imagery \\ \bottomrule
+\end{tabular}
+}%end resize
+\end{table}
+
 \subsection{Collected Data and Metadata}
-\subsection{Data formats}
+Different departments provide time series data to eMISK for consolidation and reporting. The reporting periods range from 1 month to near real-time (every 5 minutes). Examples of fields collected by these reports are shown in \ref{tab:emiskreports}. The reports use location codes to link to locations tables for mapping visualization. Additionally the tables assume that the data has already been checked and verified - consistent data - from the originated section. This includes making sure the data is in the proper units. Much of the metadata is lost when summary data is provided, such as date and time. However, metadata such as analysis methodology and sample collection method will be consistent for all samples, regardless of the summary statistical processing.
+
+\begin{table}[H]
+\centering
+\caption{Time series data provided for eMISK domain reports}
+\label{tab:emiskreports}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{eMISK report name} & \textbf{Field names} & \textbf{Description/Comments} \\ \midrule
+Coastal bacteriological report & Code & Sample collection location code linked to location table \\
+Monthly & Location & Sample collection location name \\
+ & No & Number of samples taken during the month \\
+ & Air temp & Surface air temperature, but not clear which date/time the reading refers to \\
+ & Water temp & Water temperature, but not clear at what depth or which date time reading refers to \\
+ & Parameter Mean & Self explanatory \\
+ & Parameter Min & Self explanatory \\
+ & Parameter Max & Self explanatory \\
+ & Missing & Collection method, sample collection depth, analysis methodology, date/time \\
+ &  &  \\
+Sea water analysis report & Code & Sample collection location code linked to location table \\
+Monthly & Location & Sample collection location name \\
+ & Parameters w/ units & Assumed to monthly average \\
+ & Missing & Collection method, number of samples, sample collection depth, analysis methodology, preservatives, date/time \\
+ &  &  \\
+Treated effluent water analysis report & Location & Self explanatory \\
+Monthly & Parameters w/ units & Self explanatory \\
+ & Missing & Collection method, number of samples, sample collection depth, analysis methodology, preservatives, date/time \\
+ &  &  \\
+Drinking water analysis report (KEPA) & Location & Sample collection location name \\
+Monthly & Parameters w/ units & Assumed to monthly average \\
+ & Missing & Collection method, number of samples, analysis methodology, preservatives, date/time \\
+ &  &  \\
+Drinking water analysis report (MEW) & SampleID & Self explanatory \\
+Monthly & Sample Date & Self explanatory \\
+ & Location & Location name \\
+ & Sample point & Sample point name \\
+ & Sample type & Self explanatory \\
+ & Parameter w/o units & Self explanatory \\
+ & Missing & analysis methodology, units \\
+ &  &  \\
+Ambient Air & Location &  \\
+Daily & Date/Time &  \\
+ & Parameters w/ units &  \\
+ & Missing & Atmospheric pressure \\
+ &  &  \\
+PIC CEMS & Date &  \\
+Daily & Time &  \\
+ & Parameters w/ units &  \\
+ & Missing & Temperature, flow rate, \\
+ &  &  \\
+ &  &  \\
+Zooplankton report & Code & Sample collection location code linked to location table \\
+Monthly & Location & Sample collection location name \\
+ & Date &  \\
+ & Parameters &  \\
+ & Missing & Depth of sample, collection method, time of sample, temperature, DO, salinity, Sample ID \\
+ &  &  \\
+Phytoplankton report & Code & Sample collection location code linked to location table \\
+Monthly & Location & Sample collection location name \\
+ & Date &  \\
+ & Parameters &  \\
+ & Missing & Depth of sample, collection method, time of sample, temperature, DO, salinity, Sample ID \\
+ &  &  \\
+Meiofauna report & Code & Sample collection location code linked to location table \\
+Monthly & Location & Sample collection location name \\
+ & Date &  \\
+ & Parameters &  \\
+ & Missing & Depth of sample, collection method, time of sample, temperature, DO, salinity, Sample ID \\
+ &  &  \\
+Macroalgae report & Code & Sample collection location code linked to location table \\
+Monthly & Location & Sample collection location name \\
+ & Date &  \\
+ & Parameters &  \\
+ & Missing & Depth of sample, collection method, time of sample, temperature, DO, salinity, Sample ID \\
+ &  &  \\
+Bird count by natural reserve & Count & Number of birds per species \\
+Monthly & Arabic name & Self explanatory \\
+ & Scientific name & Self explanatory \\
+ & English name & Self explanatory \\
+ & Missing & Number of days of observation \\ \bottomrule
+\end{tabular}
+}%end resize
+\end{table}
+
+Table \ref{tab:emiskreports} shows that the source data is not readily available for historical analysis and must be extracted from individual Excel worksheets at the originating section. Additionally, the datasets are provided to eMISK via email attachments and must be manually processed by an eMISK analyst prior to uploading. 
+
+One of the reasons that eMISK reports do do not report more metadata is that the data table submitted is not formatted properly. The data is submitted as a report as shown in Figure \ref{fig:treatedwater}. The variables are shown in a row as compared to columns, limiting the amount of data that can be included.
+
+\begin{figure}[!htpb]
+\centering
+\includegraphics[width=0.5\linewidth,keepaspectratio]{images/treatedwater.png} 
+\caption{Example of reported treated water effluent report.}
+\label{fig:treatedwater}
+\end{figure}
+%
+A more efficient way to show the same data would be to have only 4 columns: Location, Parameter, Result, and Unit. Each observation/chemical parameter value is a row \citep{Wickham2014}. As a comparison, the data collected using the KEDD format and available through EQuIS is shown in Table \ref{tb:kedd} in which the field names are columns and individual observations are rows. The sheets are linked by unique sample codes so that collected samples can be tracked independently from laboratory analysis if the samples are part of a quality control program and the source should be masked in order to prevent method bias.
+
+\begin{table}[H]
+\centering
+\caption{Fields for collected data and metadata in KEDD for EQuIS}
+\label{tb:kedd}
+\begin{tabular}{@{}cc@{}}
+\toprule
+\textbf{Field Sheet} & \textbf{Lab Sheet} \\ \midrule
+facility\_code & facility\_code \\
+Sample\_Name & Sample\_Name \\
+Sample\_Code & Sample\_Code \\
+Sample\_Date & Sample\_Date \\
+Sample\_Time & Sample\_Time \\
+Location\_Code & Location\_Code \\
+Sample\_Matrix\_Code & Analysis\_Location \\
+Sample\_Type\_Code & Lab\_Name\_Code \\
+sample\_method & Lab\_Sample\_Id \\
+preservative & Lab\_SDG \\
+Sampling\_Company\_Code & Lab\_Batch\_Number \\
+ & Lab\_Anl\_Method\_Name \\
+ & Chemical\_Name \\
+ & CAS\_Rn \\
+ & Result\_Value \\
+ & Lab\_Qualifiers \\
+ & Result\_Unit \\
+ & Result\_Type\_Code \\
+ & Detect\_Flag \\
+ & Reporting\_Detection\_Limit \\
+ & Dilution\_Factor \\
+ & Sample\_Matrix\_Code \\
+ & Lab\_Matrix\_Code \\
+ & Total\_or\_Dissolved \\
+ & Basis \\
+ & Analysis\_Date \\
+ & Analysis\_Time \\
+ & Method\_Detection\_Limit \\
+ & Lab\_Prep\_Method\_Name \\
+ & Prep\_Date \\
+ & Prep\_Time \\
+ & Test\_Batch\_ID \\
+ & TIC\_Retention\_Time \\
+ & QC\_Level \\
+ & Comment \\
+ & parent\_sample\_code \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Currently KNPC is submitting data to KEPA on discharged water quality on a monthly basis using the KEDD format.
+
+\subsection{Category codes}
+
+A key missing code for most data sources are industrial category codes such as the International Standard Industrial Code (ISIC) version 4 issued by the UN Statistic (\url{https://unstats.un.org/unsd/cr/registry/isic-4.asp}). This is the preferred standard from CSB. An ISIC is a 4 digit code that represents an industrial activity, such as 0610 - Extraction of crude petroleum. A company may have several activities, however, a specific process will be associated with only code. The Public Authority for Industry list is only applicable to industries that manufacture items. It is also a long string based code that is difficult to use because of the lengths.
+
+AQMIS has an SIC field for emission units that can accomodate ISIC, as well as source classification codes (SCCs) for processes. These codes allow easy sorting and querying for later analysis based on specific industries or processes.
+
+The Environmental Planning and EIA department has developed its own list of industrial processes published in regulation (2 for 2015) Environmental and Social Impact Assessments. Coordination should be done to harmonize this list with a common KEPA list.
+
+
 \subsection{Quality control and review}
-\section{KEPA deliverables}
+
+While a full review of statistical methods and recommendations for data processes are out of scope of this report, some basic procedures should be applied for all data sets. The two most important tools for data visualization are histrograms and boxplots.  A histogram provides insight to the fundamental distribution of the dataset. Some software packages, such as DecisionTools (\url{www.palisades.com}) offer curve fitting applications that estimate a distribution based on the data. Boxplots allow immediate identification of possible outliers, even if the distribution is not inherently Normal. Figure \ref{fig:rawtc} shows raw data of Total colioform. Obvious outliers are present
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\linewidth,keepaspectratio]{images/tc-raw.png} 
+\caption{Example of a boxplot with raw data showing potential outliers.}
+\label{fig:rawtc}
+\end{figure}
+
+With the outliers removed , the boxplot in Figure \ref{fig:lessrawtc} still has many potential outliers and is heavily distorted.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\linewidth,keepaspectratio]{images/tc-lessraw.png} 
+\caption{Example of a boxplot with initial outliers removed.}
+\label{fig:lessrawtc}
+\end{figure}
+
+A histogram of the data in Figure \ref{fig:lessrawtc} shown in Figure \ref{fig:histc}. A lognormal distribution curve has been fitted to the data showing that the data set is probably logarithmically distributed, especially since it is a large dataset (316 samples)
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\linewidth,keepaspectratio]{images/s0tc.png} 
+\caption{Histogram of raw data with initial outliers removed.}
+\label{fig:histc}
+\end{figure}

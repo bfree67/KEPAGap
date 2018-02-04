@@ -1,0 +1,112 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+
+\usepackage{latexsym}
+\usepackage{amssymb}
+%\usepackage{cite}
+\usepackage{amsmath}
+\usepackage{alltt}
+\usepackage{amsfonts}
+\usepackage{appendix}
+\usepackage{theorem}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{pdfsync}
+\usepackage{pdfpages}
+\usepackage{tabu}
+\usepackage{longtable}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{color}
+\usepackage{commath}
+\usepackage{xr}  %stores references from different files
+
+\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex}
+\addbibresource{phdthesis.bib}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{algorithm2e}
+\usepackage{bm} % for boldface fonts
+\usepackage{listings} % for code verbatim
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{lineno}  %add line numbers for editting - turn off for final
+\usepackage{tabularx}
+\usepackage{enumitem}
+% These packages are all incorporated in the memoir class to one degree or another...
+%%% ToC (table of contents) APPEARANCE
+%\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\usepackage{adjustbox}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\doublespacing
+
+
+\begin{document}
+%*******************  Front Matter  *******************
+\pagenumbering{roman}
+\begin{linenumbers} %turn off for final edits
+	\include{1_titlepage} % title, approval page, copyright page
+	%\include{Gap_02_Abstract}
+	%\include{Gap_03_Dedication}
+	%\include{Gap_04_Acknowledgements}
+\end{linenumbers} %turn off for final edit
+
+	\tableofcontents
+	\listoftables
+	\listoffigures
+
+%*******************  Body  *******************
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\fancyhf{}
+%\rhead{Share\LaTeX}
+%\lhead{Guides and tutorials}
+\rfoot{Page \thepage}
+\begin{linenumbers} %turn off for final edits
+
+\chapter{Requirements} 
+\section{Strategic Plan}
+\section{EPL 42/2014}
+\section{UN SDGs}
+\section{International commitments}
+
+\chapter{Organization}
+\section{KEPA Departments}
+\section{External Stakeholders}
+
+\chapter{Installed Software}
+\section{Enterprise systems}
+\subsection{Application description and user base}
+\subsection{Hosting/Licensing arrangements}
+\section{Personal systems}
+
+\chapter{Data}
+\section{Sources}
+\subsection{Collected Data and Metadata}
+\subsection{Data formats}
+\subsection{Quality control and review}
+\section{Customers}
+
+\chapter{Recommendations}
+
+\end{linenumbers} %turn off for final edit
+\clearpage
+
+%*******************  Appendices  *******************
+\appendix
+	%\include{App1_Acronyms} 
+	%\include{App2_Published}
+
+\clearpage
+
+%*******************  Bibliography  *******************
+\printbibliography[heading=bibintoc]
+\clearpage
+
+\end{document}

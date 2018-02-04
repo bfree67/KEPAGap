@@ -26,6 +26,7 @@ chapterinoneline, % Uncomment to place the chapter title next to the number on o
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 \usepackage[titletoc]{appendix}
 \usepackage{float} %% for table placements
+\usepackage{pdflscape} %%% to rotate tables and stuff
 
 \usepackage{draftwatermark}  %%%%%%%%%%%% Turn off for final version
 
@@ -88,7 +89,7 @@ chapterinoneline, % Uncomment to place the chapter title next to the number on o
 \HRule \\[1.5cm] % Horizontal line
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushleft} \large
-\emph{Author:}\\
+\emph{Prepared by:}\\
 {\authorname} % Author name - remove the \href bracket to remove the link
 \end{flushleft}
 \end{minipage}
@@ -168,8 +169,8 @@ Copyright \copyright 2018
 %\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
 \begin{appendices}
 \include{app_survey}
-%\include{app_surveyusers}
-%\include{Appendices/AppendixC}
+\include{app_funcanalysis}
+\include{app_KEDDspillandwaste}
 \end{appendices}
 
 
