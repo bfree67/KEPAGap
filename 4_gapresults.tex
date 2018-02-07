@@ -170,7 +170,7 @@ A basic incident management application is available on the Beatona website (\ur
 %
 \begin{figure}[!htpb]
 \centering
-\includegraphics[width=0.5\linewidth,keepaspectratio]{images/beatona.png} 
+\includegraphics[width=\linewidth,keepaspectratio]{images/beatona.png} 
 \caption{Incident reporting on Beatona website.}
 \label{fig:beatonat}
 \end{figure}
@@ -342,9 +342,9 @@ Table \ref{tab:emiskreports} shows that the source data is not readily available
 
 One of the reasons that eMISK reports do do not report more metadata is that the data table submitted is not formatted properly. The data is submitted as a report as shown in Figure \ref{fig:treatedwater}. The variables are shown in a row as compared to columns, limiting the amount of data that can be included.
 
-\begin{figure}[!htpb]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.5\linewidth,keepaspectratio]{images/treatedwater.png} 
+\includegraphics[width=\linewidth,keepaspectratio]{images/treatedwater.png} 
 \caption{Example of reported treated water effluent report.}
 \label{fig:treatedwater}
 \end{figure}
@@ -403,20 +403,28 @@ Currently KNPC is submitting data to KEPA on discharged water quality on a month
 
 A key missing code for most data sources are industrial category codes such as the International Standard Industrial Code (ISIC) version 4 issued by the UN Statistic (\url{https://unstats.un.org/unsd/cr/registry/isic-4.asp}). This is the preferred standard from CSB. An ISIC is a 4 digit code that represents an industrial activity, such as 0610 - Extraction of crude petroleum. A company may have several activities, however, a specific process will be associated with only code. The Public Authority for Industry list is only applicable to industries that manufacture items. It is also a long string based code that is difficult to use because of the lengths.
 
-AQMIS has an SIC field for emission units that can accomodate ISIC, as well as source classification codes (SCCs) for processes. These codes allow easy sorting and querying for later analysis based on specific industries or processes.
+AQMIS has an SIC field for emission units that can accommodate ISIC, as well as source classification codes (SCCs) for processes. These codes allow easy sorting and querying for later analysis based on specific industries or processes.
 
 The Environmental Planning and EIA department has developed its own list of industrial processes published in regulation (2 for 2015) Environmental and Social Impact Assessments. Coordination should be done to harmonize this list with a common KEPA list.
+
+\subsection{Using social media as a data source}
+
+The widespread use of internet connected portable electronic devices and social media applications allows the public to notice environmental concerns and discuss them without actually  reporting the incident to concerned authorities. While using crowdsourced data is not appropriate for requirements relying on precise results and specific metadata, there are several uses of crowd data generated from mobile devices that can assist environmental managers. 
+
+Using sentiment analysis on services such as Twitter (\url{www.twitter.com}) and Facebook (\url{www.facebook.com}) can identify possible incidents or areas of concern that could be used a proactive mean to investigate compliance activities before they are officially reported.  By recognizing words, locations, hashtagged subjects and pictures, opens source chats can be analyzed and used to train environmental decision support systems (EDSSs) to recognize possible environmental incidents. This technique has been used to aid weather forecasts by confirming prediction accuracies and registering crowd densities for health studies\citep{Boulos2011, Weaver2016}. With low-powered sensors, mobile devices can become data collection platforms that can capture ambient air concentrations and record location, time and temperature. Consolidating data collected by multiple users, each in different areas, can be used to create an area wide concentration model that reflects variations in time and space \citep{Henriques2013}. 
+
+The key to using social media is determining the desired outcomes and structuring the data collection system accordingly. Identifying which crowd to use and weighting results from those sources can provide more reliable data than treating all sources equally \citep{Comber2016}. This method of building user credibility is used by most subscription based services to provide feedback on users just as users provide feedback on the service. Users that consistently report validated events earn trust points in order speed up validation. This cannot be used as a substitute for actual reporting and investigation, but it can provide insight into situations that might otherwise go unreported.
 
 \section{Analysis of air monitoring methods}
 
 \subsection{Measurement technologies}
 
-KEPA uses two different ambient air methodologies, chemiluminescence (CL) that measures photons generated by excited molecules, and differential optical absorption spectrometry (DOAS) that uses an open path sensor to measure absorbance of transmitted ultraviolet (UV) light. Most of the chemiluminescence instruments are manufactured by Environnment SA (\url{http://www.environnement-sa.com/}) while the DOAS systems are provided by OPSIS AB (\url{https://www.opsis.se/}). The different systems processes are shown in Figure \ref{fig:airmonitors}.  Unlike the DOAS system the CL systems require a calibration gas, usually NO$_{2}$, to provide a reference for measurements.
+KEPA uses two different ambient air methodologies, chemiluminescence (CL) that measures photons generated by excited molecules, and differential optical absorption spectrometry (DOAS) that uses an open path sensor to measure absorbance of transmitted ultraviolet (UV) light. Most of the CL instruments are manufactured by Environnment SA (\url{http://www.environnement-sa.com/}) while the DOAS systems are provided by OPSIS AB (\url{https://www.opsis.se/}). The different systems processes are shown in Figure \ref{fig:airmonitors}.  Unlike the DOAS system the CL systems require a calibration gas, usually NO$_{2}$, to provide a reference for measurements.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\linewidth,keepaspectratio]{images/airmonitors.png} 
-\caption{Process chart of (a) DOAS and (b) CL type air monitors for $O_{3}$ (Williams, 2006).}
+\caption[Process chart of air measurement technologies]{Process chart of (a) DOAS and (b) CL type air monitors for $O_{3}$ (Williams, 2006).}
 \label{fig:airmonitors}
 \end{figure}
 
@@ -427,6 +435,7 @@ KEPA operates 11 stations using CL technology and 2 stations using DOAS. A parti
 \centering
 \caption{Partial list of KEPA air monitoring stations and measured parameters.}
 \label{tab:ams}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lcccccccc@{}}
 \toprule
 \textbf{Element} & \textbf{Fahaheel} & \textbf{Mansoriya} & \textbf{Mutla} & \textbf{Rabia} & \textbf{Riqqa} & \textbf{Rumeithiya} & \textbf{Um-Al Heman} & \textbf{OPSIS} \\ \midrule
@@ -462,6 +471,7 @@ UVB & X & X & X &  & X &  &  & X \\
 WD & X & X & X & X & X & X & X & X \\
 WS & X & X & X & X & X & X & X & X \\ \bottomrule
 \end{tabular}
+} %end resize
 \end{table}
 
 While DOAS systems use different methods to measure meteorological parameters, the stations come complete with weather sensors. 
@@ -513,7 +523,7 @@ A null hypothesis, $H_{o}$ was established that the CL and DOAS systems measure 
 \end{figure}
 %
 
-The first test is for homogeneity of variance between the different stations for temperature. The null hypothesis here is that variances are equivalent with a significance of p>0.05 using the Bartlett's K-squared test. The results using datasets from 2015 gives a Bartlett's K-squared = 9.0006, df = 2, p-value = 0.01111 < 0.05, thus rejecting or null and showing that the variance are not statistically similar. An Analysis of Variance (ANOVA) is still applicable despite evidence of non-homogeneity. Homogeneous data sets are still assumed despite different a number of missing data in each group (the CL set is missing 472, DOAS1 is missing 41, and DOAS2 is missing 8.).
+The first test is for homogeneity of variance between the different stations for temperature. The null hypothesis here is that variances are equivalent with a significance of p>0.05 using the Bartlett's K-squared test \citep{Mason2003}. The results using datasets from 2015 gives a Bartlett's K-squared = 9.0006, df = 2, p-value = 0.01111 < 0.05, thus rejecting or null and showing that the variance are not statistically similar. An Analysis of Variance (ANOVA) is still applicable despite evidence of non-homogeneity. Homogeneous data sets are still assumed despite different a number of missing data in each group (the CL set is missing 472, DOAS1 is missing 41, and DOAS2 is missing 8.).
 
 \begin{table}[H]
 \centering
@@ -529,10 +539,10 @@ Residuals & 8259 & 133112 & 16 &  &  \\ \bottomrule
 \end{table}
 
 \noindent
-where \textbf{Df}  is the degree of freedom, \textbf{Sum Sq} is the deviance (within groups, and residual), \textbf{Mean Sq} is the  variance (within groups, and residual), \textbf{F value} is  the value of the Fisher statistic test (variance within groups) / (variance residual), and \textbf{Pr(>F)} is the calculated p-value. The low p-values are less than our level of significance (p>0.05) so  $H_{o}$ is rejected and the means of the station temperatures are assumed to not be statistically similar, even between the twp DOAS stations. This negative finding for an easy to measure parameter such as temperature raises the issue regarding the level of maintenance and calibration of the measuring instruments. It also suggests that a common reading for meteorological parameters may not be appropriate for other stations in Kuwait. Case in point is the lack of atmospheric pressure sensors already discussed.  
+where \textbf{Df}  is the degree of freedom, \textbf{Sum Sq} is the deviance (within groups, and residual), \textbf{Mean Sq} is the  variance (within groups, and residual), \textbf{F value} is  the value of the Fisher statistic test (variance within groups) / (variance residual), and \textbf{Pr(>F)} is the calculated p-value. The low p-values are less than our level of significance (p>0.05) so  $H_{o}$ is rejected and the means of the station temperatures are assumed to not be statistically similar, even between the two DOAS stations. This negative finding for an easy to measure parameter such as temperature raises the issue regarding the level of maintenance and calibration of the measuring instruments. It also suggests that a common reading for meteorological parameters may not be appropriate for other stations in Kuwait. Case in point is the lack of atmospheric pressure sensors already discussed.  
 
-\subsubsection{Evaluation of Ozone}
-The ozone data was less Normally distributed then the temperature when sumarized in boxplots of Figure \ref{fig:o3box}.
+\subsubsection{Evaluation of hourly ozone}
+The ozone data was less Normally distributed then the temperature when summarized in boxplots of Figure \ref{fig:o3box}.
 %
 \begin{figure}[H]
 \centering
@@ -569,7 +579,7 @@ Missing & 705 & 137 & 45 \\ \bottomrule
 \end{table}
 %
 
-Testing for  homogeneity of variance between the different stations yielded Bartlett's K-squared = 3034.1, df = 2, p-value < 2.2e-16, again failing our test significiance of p>0.05. Homogeneity of data is also assumed despite the missing data. The ANOVA results are shown in Table \ref{tab:anovao3}.
+Testing for  homogeneity of variance between the different stations yielded Bartlett's K-squared = 3034.1, df = 2, p-value < 2.2e-16, again failing our test significance of p>0.05. Homogeneity of data is also assumed despite the missing data. The ANOVA results are shown in Table \ref{tab:anovao3}.
 
 \begin{table}[H]
 \centering
@@ -619,3 +629,12 @@ A histogram of the data in Figure \ref{fig:lessrawtc} shown in Figure \ref{fig:h
 \caption{Histogram of raw data with initial outliers removed.}
 \label{fig:histc}
 \end{figure}
+
+\section{Electronic decision support systems}
+A key function of data collection and monitoring is to provide decision support for managers on critical or complex issues that normal summary data cannot fully represent. EDSSs often employ machine learning algorithms to handle different data sets using supervised and unsupervised learning techniques. EDSSs have been effectively deployed to assist in water management in Lebanon \citep{Assaf2008}and waste water run-off in Italy \citep{Massei2014}.
+
+Key to EDSS development is collection of good historical data sets required to train the systems and associated metadata to allow sufficient variance within the system to account for new input conditions. The inherent complexity with EDSSs dealing with multiple data streams, optimizing different constraints, and linking to actual physical systems makes developing and training the systems more difficult than non-EDSSs \citep{Swayne2000}. Using packaged EDSSs or relying on built-in functions can dramatically limit the supporting algorithms. With the many types of machine learning models available, selecting the optimum architecture becomes another challenge \citep{Massei2014}.
+
+This difficulty is further exacerbated by the relatively few and randomly distributed events that EDSSs might be designed to assist in, such as a spill response. For events that happen rarely without a stochastic basis, training yields false responses as the system over-fits the existing training set and loses its flexibility to recognize new scenarios \citep{Goodfellow2016}.
+
+If KEPA pursues EDSS technology to assist in it's management decision making processes, it should focus on data collection during the model development period in order to insure a sufficient training set is available. Because of the different models and resources available, pretty much any data and all data can be used for initial training, with subsequent pruning to enhance performance. In addition to collecting input data, output representing the results of the data must be identified and associated with the input sets. With machine learning, it is not important to know correlations between outputs and inputs because the program find the patterns.

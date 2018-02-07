@@ -12,6 +12,7 @@
 \item Implement a coastal management system with all 6 stakeholders for sampling and reporting (EQuIS).
 \item Use AQMIS for GHG inventorying instead of IPCC desktop application.
 \item Install R and RStudio to provide immediate statistical analysis capabilities.
+\item Upgrade AQMIS with Permit and Compliance modules.
 \end{enumerate}
 
 \section{Data processing recommendations}
@@ -25,7 +26,7 @@
 \item Coordinate drinking water testing with KEPA/MEW/MOH and use common reporting platform (EQuIS).
 \item Randomly sample water sites (day of week/time). Take composite samples.
 \item Establish an analytical lab QA/QC program that submits spiked samples for testing.
-\item Use UAS-based photogrammetry to identify coast line degradation and construction.
+\item Use UAS-based photogrammetry to identify coastline, desert, and nature reserve degradation and construction.
 \item Require commercial labs to submit using EDDs.
 \item Use Tier 3 estimation efforts for GHG calculations to check with Tier 1 results.
 \item Modify IPCC emission factors for Kuwait feedstocks.
@@ -33,8 +34,10 @@
 \item Store raw data sets with EQuIS.
 \item Standardize air monitoring requirements and issue conversion factors for DOAS-Chemiflourescence methods.
 \item Use standardized EDDs for data submittals to EQuIS for different offices.
-\item 	Include CAS numbers with chemical names to insure proper chemical is being represented.
-\item 	Prepare noise maps and sample ambient noise levels.
+\item Include CAS numbers with chemical names to insure proper chemical is being represented.
+\item Conduct regional haze study.
+\item Prepare noise maps and sample ambient noise levels.
+\item Standardize air dispersion models and provide common prognostic weather data.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -61,46 +64,49 @@ Many of the recommendations refer back to using EQuIS for raw data submittal in 
 
 \begin{table}[H]
 \centering
-\caption{Prioritization of recommendations}
+\caption{Prioritized recommendations}
 \label{tab:priorities}
 \resizebox{\columnwidth}{!}{%
-\begin{tabular}{@{}lccc@{}}
+\begin{tabular}{@{}clccc@{}}
 \toprule
-\textbf{Recommendation} & \textbf{Priority} & \textbf{Cost} & \textbf{Score} \\ \midrule
-Adopt and utilize a common industrial code system such as the UN ISIC or NAIC for facilities processes. & 1 & 1 & 1 \\
-Install R and RStudio to provide immediate statistical analysis capabilities. & 1 & 1 & 1 \\
-Issue standard methods for analysing water compliance levels. & 1 & 1 & 1 \\
-Issue agency procedures for handling missing data, censored data, and outliers. & 1 & 1 & 1 \\
-Issue CEMS installation requirements that include volume rate measurements. & 1 & 1 & 1 \\
-Randomly sample water sites (day of week/time). Take composite samples. & 1 & 1 & 1 \\
-Require commercial labs to submit using EDDs. & 1 & 1 & 1 \\
-Require bore logs to be submitted using EDD (EQuIS). & 1 & 1 & 1 \\
-Store raw data sets with EQuIS. & 1 & 1 & 1 \\
-Use standardized EDDs for data submittals to EQuIS for different offices. & 1 & 1 & 1 \\
-Include CAS numbers with chemical names to insure proper chemical is being represented. & 1 & 1 & 1 \\
-Bring EQuIS maintenance up to date and use for all raw data collection and storage. & 1 & 2 & 2 \\
-Issue ground water monitoring well installation specifications and sampling plan. & 2 & 1 & 2 \\
-Coordinate drinking water testing with KEPA/MEW/MOH and use common reporting platform (EQuIS). & 2 & 1 & 2 \\
-Establish internal metrics to monitor department performances. & 3 & 1 & 3 \\
-Use AQMIS for GHG inventorying instead of IPCC desktop application. & 2 & 2 & 4 \\
-Communicate technical documents in English with Arabic summary. & 2 & 2 & 4 \\
-Provide official English translations of issued regulations. & 2 & 2 & 4 \\
-Provide access to eMISK products to government stakeholders such as EP and MOH. & 2 & 3 & 6 \\
-Implement a coastal management system with all 6 stakeholders for sampling and reporting (EQuIS). & 2 & 3 & 6 \\
-Establish an analytical lab QA/QC program that submits spiked samples for testing. & 3 & 2 & 6 \\
-Use Tier 3 estimation efforts for GHG calculations to check with Tier 1 results. & 3 & 2 & 6 \\
-Standardize air monitoring requirements and issue conversion factors for DOAS-Chemiflourescence methods. & 3 & 2 & 6 \\
-Establish source registration program (but don’t call it permit – Existing Source Review/New Source Review). & 3 & 2 & 6 \\
-Implement an online incident/spill reporting system. & 3 & 3 & 9 \\
-Adopt and utilize a common facility registration system that assigns a national registration number for each stakeholder. & 3 & 3 & 9 \\
-Implement a compliance management system that tracks stakeholder registrations and permits. & 3 & 3 & 9 \\
-Implement a violation/case management system with KEPA/MOI/MOJ to share common case information. & 3 & 3 & 9 \\
-Standardize email and website domain names to (@epa.kw.gov). & 3 & 3 & 9 \\
-Install atmospheric pressure sensors in air monitoring stations. & 3 & 3 & 9 \\
-Use UAS-based photogrammetry to identify coast line degradation and construction. & 3 & 3 & 9 \\
-Modify IPCC emission factors for Kuwait feedstocks. & 3 & 3 & 9 \\
-Prepare noise maps and sample ambient noise levels. & 3 & 3 & 9 \\
-Provide VPN/secure Read-only access to eMISK for CSB and EP using Tableau. & 3 & 3 & 9 \\ \bottomrule
+\textbf{Item} & \textbf{Recommendation} & \textbf{Priority} & \textbf{Cost} & \textbf{Score} \\ \midrule
+1 & Adopt and utilize a common industrial code system such as the UN ISIC or NAIC for facilities processes. & 1 & 1 & 1 \\
+2 & Install R and RStudio to provide immediate statistical analysis capabilities. & 1 & 1 & 1 \\
+3 & Issue standard methods for analysing water compliance levels. & 1 & 1 & 1 \\
+4 & Issue agency procedures for handling missing data, censored data, and outliers. & 1 & 1 & 1 \\
+5 & Issue CEMS installation requirements that include volume rate measurements. & 1 & 1 & 1 \\
+6 & Randomly sample water sites (day of week/time). Take composite samples. & 1 & 1 & 1 \\
+7 & Require commercial labs to submit using EDDs. & 1 & 1 & 1 \\
+8 & Require bore logs to be submitted using EDD (EQuIS). & 1 & 1 & 1 \\
+9 & Store raw data sets with EQuIS. & 1 & 1 & 1 \\
+10 & Use standardized EDDs for data submittals to EQuIS for different offices. & 1 & 1 & 1 \\
+11 & Include CAS numbers with chemical names to insure proper chemical is being represented. & 1 & 1 & 1 \\
+12 & Bring EQuIS maintenance up to date and use for all raw data collection and storage. & 1 & 2 & 2 \\
+13 & Issue ground water monitoring well installation specifications and sampling plan. & 2 & 1 & 2 \\
+14 & Coordinate drinking water testing with KEPA/MEW/MOH and use common reporting platform (EQuIS). & 2 & 1 & 2 \\
+15 & Conduct regional haze study & 2 & 1 & 2 \\
+16 & Standardize air dispersion modeling and provide common prognostic weather data for models. & 2 & 1 & 2 \\
+17 & Implement an online incident/spill reporting system. & 1 & 2 & 2 \\
+18 & Establish internal metrics to monitor department performances. & 3 & 1 & 3 \\
+19 & Use AQMIS for GHG inventorying instead of IPCC desktop application. & 2 & 2 & 4 \\
+20 & Communicate technical documents in English with Arabic summary. & 2 & 2 & 4 \\
+21 & Provide official English translations of issued regulations. & 2 & 2 & 4 \\
+22 & Upgrade AQMIS with Permit and Compliance modules & 2 & 2 & 4 \\
+23 & Use UAS-based photogrammetry to identify coastline, desert, and nature reserve degradation and construction. & 2 & 2 & 4 \\
+24 & Provide access to eMISK products to government stakeholders such as EP and MOH. & 2 & 3 & 6 \\
+25 & Implement a coastal management system with all 6 stakeholders for sampling and reporting (EQuIS). & 2 & 3 & 6 \\
+26 & Establish an analytical lab QA/QC program that submits spiked samples for testing. & 3 & 2 & 6 \\
+27 & Use Tier 3 estimation efforts for GHG calculations to check with Tier 1 results. & 3 & 2 & 6 \\
+28 & Standardize air monitoring requirements and issue conversion factors for DOAS-Chemiflourescence methods. & 3 & 2 & 6 \\
+29 & Establish source registration program (but don’t call it permit – Existing Source Review/New Source Review). & 3 & 2 & 6 \\
+30 & Adopt and utilize a common facility registration system that assigns a national registration number for each stakeholder. & 3 & 3 & 9 \\
+31 & Implement a compliance management system that tracks stakeholder registrations and permits. & 3 & 3 & 9 \\
+32 & Implement a violation/case management system with KEPA/MOI/MOJ to share common case information. & 3 & 3 & 9 \\
+33 & Standardize email and website domain names to (@epa.kw.gov). & 3 & 3 & 9 \\
+34 & Install atmospheric pressure sensors in air monitoring stations. & 3 & 3 & 9 \\
+35 & Modify IPCC emission factors for Kuwait feedstocks. & 3 & 3 & 9 \\
+36 & Prepare noise maps and sample ambient noise levels. & 3 & 3 & 9 \\
+37 & Provide VPN/secure Read-only access to eMISK for CSB and EP using Tableau. & 3 & 3 & 9 \\ \bottomrule
 \end{tabular}
 } %end resize
 \end{table}

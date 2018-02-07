@@ -4,25 +4,26 @@ KEPA recently underwent an organizational change in October 2017 in order to est
 
 \section{KEPA organization}
 
-KEPA is managed by a Director General (DG) with several Direct Reporting Sections and three divisions reporting directly to him. Two divisions, Environmental Monitoring Affairs (EMA) and Technical Affairs (TA), provide the operational sections within KEPA and were the primary areas of investigation for this report. The third division, Administrative and Financial Affairs, provides necessary logistics and support functions, and includes the IT department. The organizational at the division and direct report level is shown in Figure \ref{fig:kepaorg}. 
+KEPA is managed by the Director General (DG) with several Direct Reporting Sections and three divisions reporting directly to him. Two divisions, Environmental Monitoring Affairs (EMA) and Technical Affairs (TA), provide the operational sections within KEPA and were the primary areas of investigation for this report. The third division, Administrative and Financial Affairs, provides necessary logistics and support functions, and includes the IT department. The organizational at the division and direct report level is shown in Figure \ref{fig:kepaorg}. 
 
 %
-\begin{figure}[!htpb]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.5\linewidth,keepaspectratio]{images/kepaorg2.png} 
+\includegraphics[width=\linewidth,keepaspectratio]{images/kepaorg2.png} 
 \caption{KEPA organization at the division and direct report level.}
 \label{fig:kepaorg}
 \end{figure}
 %
 
-The two operational divisions are shown in more detail in Figures \ref{fig:emaorg} and \ref{fig:taorg}. These figures show current departments and sections. These division and their subordinate departments and sections are described below. In the descriptions, the main roles and responsibilities of department levels are provided in regards to responsibilities to the EPL and data requirements.  Analytical software other than Excel is used by the departments is also included.
+The two operational divisions are shown in more detail in Figures \ref{fig:emaorg} and \ref{fig:taorg}. These figures show current departments and sections. These division and their subordinate departments and sections are described below. In the descriptions, the main roles and responsibilities of department levels are provided in regards to the EPL and data requirements.  Analytical software other than Excel is used by the departments is also included.
 
 \subsection{Environmental Monitoring Affairs Division (EMAD)}
 The EMAD contains 6 departments and 22 sections  responsible for air quality, waste management, environmental planning, hazardous materials, industrial inspections, and environmental data.  The structure is shown in  Figure \ref{fig:emaorg}.
+
 %
-\begin{figure}[!htpb]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.5\linewidth,keepaspectratio]{images/org-ema.png} 
+\includegraphics[width=\linewidth,keepaspectratio]{images/org-ema.png} 
 \caption{KEPA EMA Division showing departments and sections.}
 \label{fig:emaorg}
 \end{figure}
@@ -65,7 +66,7 @@ The Chemical Department manages the import, export and bulks storage of hazardou
 \begin{itemize}
 \item \textbf{Chemical Safety Section} provides guidance for on-site chemical storage and transportation of hazardous materials.
 
-\item \textbf{Chemical  Licensing Section} approves chemicals and hazardous materials for use in Kuwait. Part of their responsibilities is to define what chemicals need approvals and registration.  Like the Ozone section, the Chemical Licensing Section works closely with the Customs Office at Ports of Entry. New material imports are required to be tested prior to release by a contracted lab. The lab results are sent to KEPA as hard copies or pdf attachments. The section uses a Chemical Managment software that tracks chemical import/export requests. Requests do not include an industrial code or Chemical Abstract Service (CAS) number.
+\item \textbf{Chemical  Licensing Section} approves chemicals and hazardous materials for use in Kuwait. Part of their responsibilities is to define what chemicals need approvals and registration.  Like the Ozone section, the Chemical Licensing Section works closely with the Customs Office at Ports of Entry. New material imports are required to be tested prior to release by a contracted lab. The lab results are sent to KEPA as hard copies or pdf attachments. The section uses a Chemical Management software that tracks chemical import/export requests. Requests do not include an industrial code or Chemical Abstract Service (CAS) number.
 
 \item \textbf{Chemical  Manufacturing Section} oversees production of chemicals (non-hydrocarbons) in Kuwait by industrial agencies. Registration of companies and materials is through Excel worksheets. Information is not currently provided to eMISK.
 
@@ -91,7 +92,7 @@ The Environmental Data Department was re-organized during the October 2017 re-or
 
 \textbf{Environmental Database Section} manages and administrates the eMISK and Tableau servers.
 
-\textbf{Environmental Emergencies Section} responds to spills and incidents by providing necessary decision support tools to senior management and on-scene commanders such as identification of sensitive areas and dispersion model results. Notification of incidents usually takes place with a phone call or Whatsapp message.
+\textbf{Environmental Emergencies Section} responds to spills and incidents by providing necessary decision support tools to senior management and on-scene commanders such as identification of sensitive areas and dispersion model results. Notification of incidents usually takes place with a phone call or WhatsApp message.
 
 \textbf{Environmental Assessments \& Status Section} conducts GIS-based research to baseline environmental conditions and changes.
 
@@ -115,12 +116,16 @@ The Planning \& EIA Development Department reviews and approves all environmenta
 
 \textbf{Developmental Projects Section}
 
+While the department provides guidance on how to format the report for submittal, the  department does not have standardized procedures for common methodologies such as air dispersion modelling and background sampling for air, water and soil. By directing common modelling procedures for air dispersion models, the department can evaluate report results against similar models or run their own model using report input parameters in order to verify the consultant's results.  The department should consider requiring specific air dispersion models,, such as AERMOD (\url{https://www.epa.gov/scram/air-quality-dispersion-modeling-preferred-and-recommended-models#aermod}) of CALPUFF (\url{www.src.com}), and provide the necessary prognostic weather data in MM5 or WRF formats \citep{Henmi2004} covering the entire country in for multiple years in order for consultants to run consistent models. The weather data should be freely available, as well as land use data  needed by the models to account for surface roughness. 
+
+Additionally, the department should consider requiring consultants to submit lab samples using EQuIS in order to capture necessary geospatial and metadat for later review.
+
 \subsection{Technical Affairs Division (TAD)}
 The TAD contains 5 departments and 12 sections  responsible for laboratory analysis, water quality, biodiversity, coastal management, and desertification.  The structure is shown in  Figure \ref{fig:taorg}.
 %
-\begin{figure}[!htpb]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.5\linewidth,keepaspectratio]{images/org-ta.png} 
+\includegraphics[width=\linewidth,keepaspectratio]{images/org-ta.png} 
 \caption{KEPA TA Division showing departments and sections.}
 \label{fig:taorg}
 \end{figure}
@@ -172,9 +177,20 @@ The Coastal and Desertification Monitoring Department monitors changes to coastl
 
 \textbf{Desertification Section} monitors deterioration at campsites and insures that users properly dispose of wastes and do not excavate pits for latrines or waste disposal. The section also oversees getch quarrying. This section does not report data to eMISK.
 
+This department uses manpower intensive methods to capture data, especially during coast line profile surveys. One possible enhancement to their work would be to use unmanned aerial systems (UASs), commonly called drone, for aerial surveys and topographical mapping. Commercial multi-rotor UASs are inexpensive and can use flight software to photograph the same position and angle over time to identify changes. Additionally, mapping software using photogrammetry methods can generate 3D maps with topographical layers for use in GIS spatial analysis to get precise and accurate measurements of wide areas instead of sampled profiles \citep{Coveney2017, Lizarazo2017}. An example of a UAS/photogrammetry generated map is shown in Figure \ref{fig:mapping}.
+
+%
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/mapping.png} 
+\caption[Examples of UAS generated model and map].{Example of (a) model generated by photogrammetry software from UAS imagery and (b) corresponding topographical map (generated by Pix4Ddiscovery).}
+\label{fig:mapping}
+\end{figure}
+%
+
 \subsubsection{Conservation of Biodiversity Department}
 
-The Conservation of Biodiversity Department monitors the flora and fauna of Kuwait, including identifying habitat of endangered species and supporting the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CTES) to which Kuwait became a signatory on 12 Aug 2002 \citep{cites2002}. The department coordinates closely with the Public Authority of Agriculture Affairs and Fish Resources (PAAF) and KISR.
+The Conservation of Biodiversity Department monitors the flora and fauna of Kuwait, including identifying habitat of endangered species and supporting the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES) to which Kuwait became a signatory on 12 Aug 2002 \citep{cites2002}. The department coordinates closely with the Public Authority of Agriculture Affairs and Fish Resources (PAAF) and KISR.
 
 \textbf{Marine Organism Monitoring Section} collects samples of macroalgae, meiofauna, phytoplankton, and zooplankton for analysis at the Biological Lab Section. Analysis consists of classification and counts. Bioassays from fish are also analyzed for toxins and bacteria.
 
@@ -326,7 +342,7 @@ Tableau & 73.1\% & 19.2\% & 7.7\% & 0.0\% \\ \bottomrule
 } %end resize
 \end{table}
 
-A secondary question to Table \ref{tab:training1} was to ask the respondents their impression of the course and instructor. This was meant to be a general impression of courses taken and not to necessarily consider a specific course. The responents had favorable impressions of the courses and instructors, with only a minority (average of 35.6\% disagreeing with the evaluation statements. The summary of the third party course evaluations is shown in Table \ref{tab:training2}.
+A secondary question to Table \ref{tab:training1} was to ask the respondents their impression of the course and instructor. This was meant to be a general impression of courses taken and not to necessarily consider a specific course. The respondents had favorable impressions of the courses and instructors, with only a minority (average of 35.6\% disagreeing with the evaluation statements. The summary of the third party course evaluations is shown in Table \ref{tab:training2}.
 
 \begin{table}[!htpb]
 \centering
@@ -369,7 +385,7 @@ R & 15.2\% \\ \bottomrule
 \end{table}
 
 \subsection{Internal survey results}
-The internal survey showed that KEPA staff have basic knowledge of data management systems (Excel and Google Earth) and use these applications on a regular basis. Other, more specialized software packages, such as Minitab and SPSS, were not widely used. One reason to explain the lack of use of specialized statistical analysis tools is that KEPA does not provide licenses for these applications. This implies that there is not an internal requirement for this type of software. A follow-on impact of not having statistical analysis software is that staff is not familiar with statistical testing and validation processes, or that standardized statistical methods are carried out on data sets. While it is possible to do statistical testing on Excel, the process requires advanced users to set up the equations. Of the respondents, 24.1\% described themselves as Power Users that could be capable of setting up the necessary spreadsheets. Another option could be using Excel add-ins such as DecisionTools from Palisades (\url{www.palisades.com}) or XLStat by Addinsoft (\url{www.xlstat.com}) to provide easy to access statistical tools.  These products also require software licenses and may not be widely distributed. The upcoming deployment of Tableau will enhance visualization of time series and geospatial data but will not provide statistical analysis. Rapid and widespread (and free) use of powerful analytical capabilities are available in R and Python packages, however there is little interest in these applications. The drivers behind this perception was not investigated but are assumed to be a combination of lack of familiarity with the products and perceived complexity concerning their use. 
+The internal survey showed that KEPA staff have basic knowledge of data management systems (Excel and Google Earth) and use these applications on a regular basis. Other, more specialized software packages, such as Minitab and SPSS, were not widely used. One reason to explain the lack of use of specialized statistical analysis tools is that KEPA does not provide licenses for these applications. This implies that there is not an internal requirement for this type of software. A follow-on impact of not having statistical analysis software is that staff is not familiar with statistical testing and validation processes, or that standardized statistical methods are carried out on data sets. While it is possible to do statistical testing on Excel, the process requires advanced users to set up the equations. Of the respondents, 24.1\% described themselves as Power Users that could be capable of setting up the necessary spreadsheets. Another option could be using Excel add-ins such as DecisionTools from Palisades (\url{www.palisades.com}) or XLStat by Addinsoft, Inc (\url{www.xlstat.com}) to provide easy to access statistical tools.  These products also require software licenses and may not be widely distributed. The upcoming deployment of Tableau will enhance visualization of time series and geospatial data but will not provide statistical analysis. Rapid and widespread (and free) use of powerful analytical capabilities are available in R and Python packages, however there is little interest in these applications. The drivers behind this perception was not investigated but are assumed to be a combination of lack of familiarity with the products and perceived complexity concerning their use. 
 
 \section{External stakeholder requirements}
 
