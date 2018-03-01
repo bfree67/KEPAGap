@@ -168,7 +168,7 @@ Current incidents, including hazardous material spills, venting and flaring are 
 A basic incident management application is available on the Beatona website (\url{http://www.beatona.net/CMS/index.php}. The app allows an individual to identify a problem on a map, describe it and attached pictures of it. The map shows the status of reported incidents using a red-yellow-green indicators. The most current reported incident was submitted on 16 Jan 2013, forwarded to a department for action on 14 May 2014, and is still open. A screenshot the app is shown in FIgure \ref{fig:beatonat}.
 
 %
-\begin{figure}[!htpb]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth,keepaspectratio]{images/beatona.png} 
 \caption{Incident reporting on Beatona website.}
@@ -182,7 +182,7 @@ A spill reporting EDD was provided with the KEDD for EQuIS that included geospat
 A key feature proposed in the CIMS project was the implementation of a permit system that established standards of performance for individual facilities regarding the allowable amount and concentrations of wastes, emissions, and discharges it could generate over a set time period. This requires a compliance management system to track facilities, permitted activities, milestone dates, inspection results, and follow-up actions. Even without the permitting, a central system is needed to track inspections and findings. The system should include standardized industrial codes and geospatial data to assist in visualizing and prioritizing audits. The system should also track the status of findings (open, closed, in progress), the category of the finding (waste, air, water), the impact of the finding (severe, minor), and concerned parties. The system should be linked with the Environment Police so they can access relevant information as well.
 
 \subsubsection{Waste Management System}
-Currently, waste is being tracked as hazardous, non-hazardous, and medical wastes with not differentiation of waste streams with the 3 categories. There is no registry of generators, transporters, or receivers aside from the licensed landfills. Receivers could also include industries accepting recyclable hazardous waste as feedstock.
+Currently, waste is being tracked as hazardous, non-hazardous, and medical wastes with no differentiation of waste streams with the 3 categories. There is no registry of generators, transporters, or receivers aside from the licensed landfills. Receivers could also include industries accepting recyclable hazardous waste as feedstock.
 
 \subsubsection{ODS tracking and management}
 The current Electronic Services System is effective for supporting ODS trading. Linking to a portal at the port of entry for immediate access by on-site customs officers could improve efficiency and costs by saving trips back and forth to the KEPA offices by stakeholders. Missing functionality in the system includes lack of training records for certified ODS technicians, operating permits of ODS processes, and emission inventories of ODSs actually used.
@@ -401,7 +401,7 @@ Currently KNPC is submitting data to KEPA on discharged water quality on a month
 
 \subsection{Category codes}
 
-A key missing code for most data sources are industrial category codes such as the International Standard Industrial Code (ISIC) version 4 issued by the UN Statistic (\url{https://unstats.un.org/unsd/cr/registry/isic-4.asp}). This is the preferred standard from CSB. An ISIC is a 4 digit code that represents an industrial activity, such as 0610 - Extraction of crude petroleum. A company may have several activities, however, a specific process will be associated with only code. The Public Authority for Industry list is only applicable to industries that manufacture items. It is also a long string based code that is difficult to use because of the lengths.
+A key missing code for most data sources are industrial category codes such as the International Standard Industrial Code (ISIC) version 4 issued by the UN Statistic (\url{https://unstats.un.org/unsd/cr/registry/isic-4.asp}). This is the preferred standard from CSB. An ISIC is a 4 digit code that represents an industrial activity, such as 0610 - Extraction of crude petroleum. A company may have several activities, however, a specific process will be associated with only one code. The Public Authority for Industry list is only applicable to industries that manufacture items. It is also a long string based code that is difficult to use because of the lengths.
 
 AQMIS has an SIC field for emission units that can accommodate ISIC, as well as source classification codes (SCCs) for processes. These codes allow easy sorting and querying for later analysis based on specific industries or processes.
 
@@ -496,7 +496,8 @@ where $C(ppb)$ is the gas concentration in $ppb$, $C(\mu g/m^{3})$ is the concen
 \label{fig:pressure}
 \end{figure}
 %
-In addition to not having ATP monitors, most KEPA stations also do not have PM$_{2.5}$ monitoring equipment, and no station has PM$_{1}$ measurement capabilities (KEPA and KPC). PM$_{2.5}$, and PM$_{1}$ are widely considered to be generated by anthropogenic sources such as combustion by-products and aerosols from industrial processes \cite{Squizzato2016}.  Regular static sampling should be taken for analytical evaluation at an air lab for comprehensive look at air components. A major issue impacting Kuwait and other Gulf countries is regional haze. Studies show that overall visibility is degrading in the United Arab Emirates but do not identify causes and mitigations steps \citep{Amal2017}. The visibility is described as a mixture of fog, dust and industrial pollution. Various observations of the haze in Kuwait show that it is heaviest in the afternoon (characteristic of photochemical processes), limited to the mixing height of the atmosphere (approximately 150m), and white (suggesting it is nitrogen based, and not ozone - which is brownish) \citep{Liu2013}.
+\subsection{Regional haze}
+In addition to not having ATP monitors, most KEPA stations also do not have PM$_{2.5}$ monitoring equipment, and no station has PM$_{1}$ measurement capabilities (KEPA and KPC). PM$_{2.5}$, and PM$_{1}$ are widely considered to be generated by anthropogenic sources such as combustion by-products and aerosols from industrial processes \citep{Squizzato2016}.  Regular static sampling should be taken for analytical evaluation at an air lab for comprehensive look at air components. A major issue impacting Kuwait and other Gulf countries is regional haze. Studies show that overall visibility is degrading in the United Arab Emirates but do not identify causes and mitigations steps \citep{Amal2017}. The visibility is described as a mixture of fog, dust and industrial pollution. Various observations of the haze in Kuwait show that it is heaviest in the afternoon (characteristic of photochemical processes), limited to the mixing height of the atmosphere (approximately 150m), and white (suggesting it is nitrogen based, and not ozone - which is brownish) \citep{Liu2013}. To study this phenomenon, visibility sensors should be installed at air monitoring stations in addition to the pressure sensors.
 %
 \begin{figure}[H]
 \centering
@@ -505,6 +506,7 @@ In addition to not having ATP monitors, most KEPA stations also do not have PM$_
 \label{fig:haze}
 \end{figure}
 %
+
 
 \subsection{Statistical analysis of station parameters}
 KEPA has three stations located in the Um-Al Heman area due to public concern including its 2 DOAS stations \citep{Carlisle2010} and the impact of pollution cycling from land-sea breeze effects \cite{Freeman2017}.  The relative proximity to each (1.1-1.6km from each other) makes this an ideal test environment to compare results and determine whether the two methods provide statistically similar results. The locations relative to each other are shown in Figure \ref{fig:stations}.
@@ -531,7 +533,7 @@ A null hypothesis, $H_{o}$ was established that the CL and DOAS systems measure 
 \end{figure}
 %
 
-The first test is for homogeneity of variance between the different stations for temperature. The null hypothesis here is that variances are equivalent with a significance of p>0.05 using the Bartlett's K-squared test \citep{Mason2003}. The results using datasets from 2015 gives a Bartlett's K-squared = 9.0006, df = 2, p-value = 0.01111 < 0.05, thus rejecting or null and showing that the variance are not statistically similar. An Analysis of Variance (ANOVA) is still applicable despite evidence of non-homogeneity. Homogeneous data sets are still assumed despite different a number of missing data in each group (the CL set is missing 472, DOAS1 is missing 41, and DOAS2 is missing 8.).
+The first test is for homogeneity of variance between the different stations for temperature. The null hypothesis here is that variances are equivalent with a significance of p>0.05 using the Bartlett's K-squared test \citep{Mason2003}. The results using datasets from 2015 gives a Bartlett's K-squared = 9.0006, df = 2, p-value = 0.01111 < 0.05, thus rejecting or null and showing that the variance are not statistically similar. An Analysis of Variance (ANOVA) is still applicable despite evidence of non-homogeneity. Homogeneous data sets are still assumed despite different numbers of missing data in each group (the CL set is missing 472, DOAS1 is missing 41, and DOAS2 is missing 8.).
 
 \begin{table}[H]
 \centering
@@ -550,7 +552,7 @@ Residuals & 8259 & 133112 & 16 &  &  \\ \bottomrule
 where \textbf{Df}  is the degree of freedom, \textbf{Sum Sq} is the deviance (within groups, and residual), \textbf{Mean Sq} is the  variance (within groups, and residual), \textbf{F value} is  the value of the Fisher statistic test (variance within groups) / (variance residual), and \textbf{Pr(>F)} is the calculated p-value. The low p-values are less than our level of significance (p>0.05) so  $H_{o}$ is rejected and the means of the station temperatures are assumed to not be statistically similar, even between the two DOAS stations. This negative finding for an easy to measure parameter such as temperature raises the issue regarding the level of maintenance and calibration of the measuring instruments. It also suggests that a common reading for meteorological parameters may not be appropriate for other stations in Kuwait. Case in point is the lack of atmospheric pressure sensors already discussed.  
 
 \subsubsection{Evaluation of hourly ozone}
-The ozone data was less Normally distributed then the temperature when summarized in boxplots of Figure \ref{fig:o3box}.
+The ozone data was less Normally distributed than the temperature when summarized in boxplots of Figure \ref{fig:o3box}.
 %
 \begin{figure}[H]
 \centering
@@ -559,7 +561,7 @@ The ozone data was less Normally distributed then the temperature when summarize
 \label{fig:o3box}
 \end{figure}
 %
-The stations show many potential outliers, which when looked in histograms in Figure \ref{fig:o3hist} suggests that the extreme values are part of the underlying distributions.
+The stations show many potential outliers, which when looked at in histograms in Figure \ref{fig:o3hist} suggests that the extreme values are part of the underlying distributions.
 
 %
 \begin{figure}[H]
@@ -602,7 +604,7 @@ Residuals & 7906 & 652293 & 83 &  &  \\ \bottomrule
 \end{tabular}
 \end{table}
 
-Again the null is rejected because the p-values are less than the level of significance. Transforming the data by taking the logarithm also does improve the result enough. In order to transform the data, all 0's (censored data) had to be converted to a small value because log(0) is undefined. 
+Again the null is rejected because the p-values are less than the level of significance. Transforming the data by taking the logarithm also does not improve the result enough. In order to transform the data, all 0's (censored data) had to be converted to a small value because log(0) is undefined. 
 
 \subsubsection{Air methodology analysis summary}
 
@@ -629,7 +631,7 @@ With the outliers removed , the boxplot in Figure \ref{fig:lessrawtc} still has 
 \label{fig:lessrawtc}
 \end{figure}
 
-A histogram of the data in Figure \ref{fig:lessrawtc} shown in Figure \ref{fig:histc}. A lognormal distribution curve has been fitted to the data showing that the data set is probably logarithmically distributed, especially since it is a large dataset (316 samples)
+A histogram of the data in Figure \ref{fig:lessrawtc} is shown in Figure \ref{fig:histc}. A lognormal distribution curve has been fitted to the data showing that the data set is probably logarithmically distributed, especially since it is a large dataset (316 samples)
 
 \begin{figure}[H]
 \centering
