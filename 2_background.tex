@@ -117,7 +117,8 @@ EPL 42/2014 came into force on 14 Oct 2014 and brought with it many changes. Whi
 \textbf{Section} & \textbf{Articles} \\ \midrule
 Preamble & 1-15 \\
 Section One: Development \& Environment & 16-20 \\
-Section Two: Protection Of Ground Environment Against Pollution & 21-64 \\
+Section Two: Protection Of Ground Environment Against Pollution & 21-47 \\
+Section Three: Protection Of the Ambient Air Against Pollution & 48-64 \\
 Section Four: Protection Of Water and Coastal Environment Against Pollution & 65-99 \\
 Section Five: Biodiversity & 100-110 \\
 Section Six: Environment Management & 111-157 \\
@@ -232,25 +233,25 @@ By-laws referred to in the original EPL were incrementally released from 2015 - 
 
 KEPA uses several enterprise level EIMS in addition to project management, document management, human resources and financial management programs. These include:
 
-\textbf{eMISK (environment Monitoring Information System for Kuwait)} – this is an enterprise level Geographic Information System (GIS) using ESRI ArcServer and ArcGIS solutions (\url{http://www.esri.com}) administered on local servers. Its main purpose is to consolidate environmental data and present it in graphical formats to support decision makers and stakeholders. eMISK includes GIS analysts as well as the software, and has initiated several ambitious projects to enhance its position in KEPA including characterization of the Kuwait bay and waste stream analysis of Kuwait. The underlying geodatabase supporting eMISK is divided in 11 domains as shown in Table \ref{tab:emiskdomains}
+\textbf{eMISK (environment Monitoring Information System for Kuwait)} – this is an enterprise level Geographic Information System (GIS) using ESRI ArcServer and ArcGIS solutions (\url{http://www.esri.com}) administered on local servers. Its main purpose is to consolidate environmental data and present it in graphical formats to support decision makers and stakeholders. eMISK includes GIS analysts as well as the software, and has initiated several ambitious projects including characterization of the Kuwait bay and a waste stream analysis of Kuwait. The underlying geodatabase supporting eMISK is divided in 11 domains as shown in Table \ref{tab:emiskdomains}. TSD refers to time series data.
 
-\begin{table}[!htpb]
+\begin{table}[H]
 \centering
 \caption{eMISK domains}
 \label{tab:emiskdomains}
 \begin{tabular}{@{}ccc@{}}
 \toprule
 \textbf{No.} & \textbf{Domain} & Comments \\ \midrule
-1 & Atmospheric & TS \\
-2 & Biodiversity & TS\\
-3 & Energy & TS \\
-4 & Waste & TS\\
+1 & Atmospheric & TSD \\
+2 & Biodiversity & TSD\\
+3 & Energy & TSD \\
+4 & Waste & TSD\\
 5 & Hydrology \\
-6 & Marine & TS\\
-7 & Terrestrial & TS \\
-8 & MEW & Not Used \\
-9 & Industry & Not Used\\
-10 & Oil \& Gas & Not Used\\
+6 & Marine & TSD\\
+7 & Terrestrial & TSD \\
+8 & MEW & Reserved for emission submittals, Currently not Used \\
+9 & Industry & Reserved for emission submittals, Currently not Used\\
+10 & Oil \& Gas & Reserved for emission submittals, Currently not Used\\
 11 & Socioeconomic & Not Used\\ \bottomrule
 \end{tabular}
 \end{table}
@@ -309,7 +310,7 @@ where A is the annual consumption of the process fuel in Gigagrams (Gg), B is an
 A basic summary of the different EISs currently in use at KEPA is shown in Figure \ref{fig:existing} along with methods of data transfer and responsible units. The pathways without an Excel icon assume an internet based link or some form of direct data exchange that does not involve exporting through third party software (such as Excel).
 
 %
-\begin{figure}[!htpb]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth,keepaspectratio]{images/existing-net.png} 
 \caption{Summary of existing EIS architectures at KEPA.}
