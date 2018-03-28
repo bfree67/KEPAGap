@@ -55,7 +55,7 @@ The AQFUD includes 5 sections:
 
 \item \textbf{Air Pollutants Emissions Section} captures point, area and mobile source data to generate emissions inventories of hazardous air pollutants. The section primarily uses AQMIS to log source parameters and assign emission factors for individual processes. AQMIS can perform Tier 3 inventories, multi-source, wide area air dispersion modeling, source apportionment, and quantified human health risk assessments. While Kuwait is not a signatory to the Convention on Long-Range Transboundary Air Pollution \citep{UN1979}, the section is preparing annual inventories based on industrial sectors and individual emission units. The section requires annual consumption inputs from industry  on registered processes in order to generate the inventory and run the different models.
 
-\item \textbf{Climate Change Section} is responsible for preparing Kuwait's  national GHG inventories under IPCC methodologies and publishing National Communications in accordance with the requirements of  Non-Annex 1 countries under the United Nations Framework Convention on Climate Change (UNFCCC) \citep{unfccc2014}. Kuwait became a signatory of the UNFCC on 28 Dec 1994 and issued their first National Communication (NC-1) on 21 Nov 2012 \citep{kepa2012}. As mentioned in Chapter 2, this section uses the IPCC Emissions Inventory software to compile a Tier 1 inventory from subject experts outside of the department. The IPCC software provides ranges of input for the energy conversion and GHG conversion factors in eq \ref{eq:GHGei}. Based on discussions with section staff, only default values are used. Inputs from external consultants are submitted on Excel worksheets and transferred to the IPCC software. Since the software is a desktop application, sections from different categories must be manually merged. While only IPCC emission factors are used by the section, IPCC allows the use of country specific factors for more detailed inventories \citep{ipcc2006}.
+\item \textbf{Climate Change Section} is responsible for preparing Kuwait's  national GHG inventories under IPCC methodologies and publishing National Communications in accordance with the requirements of  Non-Annex 1 countries under the United Nations Framework Convention on Climate Change (UNFCCC) \citep{unfccc2014}. Kuwait became a signatory of the UNFCC on 28 Dec 1994 and issued their first National Communication (NC-1) on 21 Nov 2012 \citep{kepa2012}. As mentioned in Chapter 2, this section uses the IPCC Emissions Inventory software to compile a Tier 1 inventory from subject experts outside of the department. The IPCC software provides ranges of input for the energy conversion and GHG conversion factors in eq \ref{eq:GHGei}. Based on discussions with section staff, only default values are used. Inputs from external consultants are submitted on Excel worksheets and transferred to the IPCC software. Since the software is a desktop application, sections from different categories must be manually merged. While only IPCC emission factors are used by the section, IPCC allows the use of country specific factors for more detailed inventories \citep{ipcc2006}. Additional factors and methodologies should be developed to capture different GHG sources that are not directly covered by IPCC factors \citep{Freeman2018}.
 
 \item \textbf{Ozone Management Section} manages the National Ozone Unit responsible for managing Kuwait's Ozone Depleting Substances (ODS) program in accordance with the Montreal Protocol to the Vienna Convention for the Protection of the Ozone Layer, which Kuwait signed on 23 Nov 1992 \citep{un1987}.  The section uses the Electronic Services System to track commercial request to import and export ODSs. The system is not linked to the Customs Office at the port of entry so requests must be hand-carried to the KEPA office for approval. Additionally, the system does not track training certificates of registered refrigerant technicians authorized to maintain systems that use ODSs.
 \end{itemize}
@@ -96,19 +96,23 @@ The Environmental Data Department was re-organized during the October 2017 re-or
 
 \textbf{Environmental Assessments \& Status Section} conducts GIS-based research to baseline environmental conditions and changes.
 
-\subsubsection{Industrial Environment Department}
+\subsubsection{Rehabilitation and Follow-up of Environmental Activities  Department}
 
-The Industrial Environment Department conducts site inspections and compliance audits of facilities based on the EPL. The environmental officers can issue fines and bring in the Environment Police for criminal cases. KEPA has not implemented an operating permit program that registers known emission generators and discharge points in order to give stakeholders standards of performance to be audited against. Audit reports are completed in Microsoft Word and Excel. Section include:
+The Rehabilitation and Follow-up of Environmental Activities Department oversees registration and review of environmental consulting offices and third party laboratories. Staff members issue authorizations to qualified offices by conducting on-site inspections. The department has no centralized database and uses Excel based records to track offices. Once a quality control systems is established for third party labs that includes testing of blank and slug samples with known concentrations, the department should use EQuIS to track sample submittals and lab results. This department should also assist deployment of EQuIS and EDP licenses to local consultants and labs.
 
-\textbf{Waste Control Section}
+Department sections include:
 
-\textbf{Indoor Environment Section}
+\textbf{Consultant Offices Section}
 
-\textbf{Environmental Work Section}
+\textbf{Environmental Labs Section}
+
+\textbf{Multi-Activities Section}
 
 \subsubsection{Planning \&  EIA Development Department}
 
-The Planning \& EIA Development Department reviews and approves all environmental and social impact studies. Reports are tracked independently using an in-house project management software provide by the IT department. No data is provided to eMISK. Sections within the depart include:
+The Planning \& EIA Development Department reviews and approves all environmental and social impact studies. Reports were tracked independently using an in-house project management software provide by the IT department, but this software was discontinued due to lack of functionality. Key metrics tracked by the department are ESIA reports submitted and locations of actions taking place. No data is provided to eMISK, nor is there an eMISK domain for environmental planning. 
+
+Sections within the department include:
 
 \textbf{ Environmental Planning Section}
 
@@ -116,7 +120,9 @@ The Planning \& EIA Development Department reviews and approves all environmenta
 
 \textbf{Developmental Projects Section}
 
-While the department provides guidance on how to format the report for submittal, the  department does not have standardized procedures for common methodologies such as air dispersion modelling and background sampling for air, water and soil. By directing common modelling procedures for air dispersion models, the department can evaluate report results against similar models or run their own model using report input parameters in order to verify the consultant's results.  The department should consider requiring specific air dispersion models,, such as AERMOD (\url{https://www.epa.gov/scram/air-quality-dispersion-modeling-preferred-and-recommended-models#aermod}) of CALPUFF (\url{www.src.com}), and provide the necessary prognostic weather data in MM5 or WRF formats \citep{Henmi2004} covering the entire country in for multiple years in order for consultants to run consistent models. The weather data should be freely available, as well as land use data  needed by the models to account for surface roughness. 
+While the department provides guidance on how to format the report for submittal, the  department does not have standardized procedures for common methodologies such as air dispersion modelling and background sampling for air, water and soil. By directing common modelling procedures for air dispersion models, the department can evaluate report results against similar models or run their own model using report input parameters in order to verify the consultant's results.  
+
+The department should consider requiring specific air dispersion models, such as AERMOD (\url{https://www.epa.gov/scram/air-quality-dispersion-modeling-preferred-and-recommended-models#aermod}) of CALPUFF (\url{www.src.com}), and provide the necessary prognostic weather data in MM5 or WRF formats \citep{Henmi2004} covering the entire country in for multiple years in order for consultants to run consistent models. The weather data should be freely available, as well as land use data  needed by the models to account for surface roughness. 
 
 Additionally, the department should consider requiring consultants to submit lab samples using EQuIS in order to capture necessary geospatial and metadat for later review.
 
@@ -156,19 +162,19 @@ The Analytical Laboratory Department receives samples from other departments - m
 
 \textbf{Biological Lab Section} conducts analytical chemistry on biological assays. Like the Laboratory Section, this section does not report directly to eMISK but send the results back to the source on Excel. This section does not use EQuIS and stored raw data on local Excel files.
 
-\textbf{ Sand Lab Section} conducts analytical chemistry on soils and aggregate. Like the Laboratory Section, this section does not report directly to eMISK but send the results back to the source on Excel. This section does not use EQuIS and stored raw data on local Excel files.
+\textbf{Sand Lab Section} conducts analytical chemistry on soils and aggregate. Like the Laboratory Section, this section does not report directly to eMISK but send the results back to the source on Excel. This section does not use EQuIS and stored raw data on local Excel files.
 
 \subsubsection{Inspection Department}
 
 \textbf{Governorates Section} conducts health inspections on restaurants, food service providers and food markets throughout the country. In each district, there is an office with local responsibilities. Reports are prepared in Word and submitted through email as attachments. Historical reports and actions must be searched manually through hard copies and ledgers.
 
-\subsubsection{Water Pollution Monitoring Department}
+\subsubsection{Water Quality Monitoring Department}
 
-The Water Pollution Monitoring Department collects samples from sea, coastal, ground, treatment plant discharges, and drinking water points throughout the country. Samples are sent to the Laboratory Section for analysis and reported to eMISK.
+The Water Quality Monitoring Department collects samples from sea, coastal, ground, treatment plant discharges, and drinking water points throughout the country. Samples are sent to the Laboratory Section for analysis and reported to eMISK.
 
-\textbf{Water Pollution Section} collects monthly samples from inland sources such as drinking water points, waste water treatment plants, storm water discharge points, and groundwater wells.
+\textbf{Drinking and Ground Water Monitoring Section} collects monthly samples from inland sources such as drinking water points, waste water treatment plants, storm water discharge points, and groundwater wells. This section will be responsible for preparing and issuing ground water monitoring wells guidance and collecting the substantial amounts of date generated during well boring and sample collection. EQuIS should be integrated into all operations to insure samples and results are properly managed.
 
-\textbf{Marine Support Services Section} operates a series of 15 monitoring buoys that provide real time datasets directly to eMISK. The section also collects monthly samples from 11 locations in the sea and 11 locations on the coast. Collected samples are sent the Laboratory Section for analysis and validated by the section before being summarized and reported to eMISK.
+\textbf{Marine Water Monitoring Section} operates a series of 15 monitoring buoys that provide real time datasets directly to eMISK. The section also collects monthly samples from 11 locations in the sea and 11 locations on the coast. Collected samples are sent the Laboratory Section for analysis and validated by the section before being summarized and reported to eMISK.
 
 \subsubsection{Coastal and Desertification Monitoring Department}
 The Coastal and Desertification Monitoring Department monitors changes to coastlines and construction taking place near the coast. It also monitors impacts of campsite use. The department uses Tableau, but does not have GIS access.  The sections include:
@@ -192,11 +198,13 @@ This department uses manpower intensive methods to capture data, especially duri
 
 The Conservation of Biodiversity Department monitors the flora and fauna of Kuwait, including identifying habitat of endangered species and supporting the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES) to which Kuwait became a signatory on 12 Aug 2002 \citep{cites2002}. The department coordinates closely with the Public Authority of Agriculture Affairs and Fish Resources (PAAF) and KISR.
 
-\textbf{Marine Organism Monitoring Section} collects samples of macroalgae, meiofauna, phytoplankton, and zooplankton for analysis at the Biological Lab Section. Analysis consists of classification and counts. Bioassays from fish are also analyzed for toxins and bacteria.
+\textbf{Marine Organism Monitoring Section} collects samples of macroalgae, meiofauna, phytoplankton, and zooplankton for analysis at the Biological Lab Section. Analysis consists of classification and counts. Bioassays from fish are also analyzed for toxins and bacteria. Monthly summary reports are compiled for eMISK and submitted in Excel.
 
 \textbf{Wildlife Monitoring Section} monitors terrestrial flora and fauna, including migrating birds. Monthly counts are collected from subject matter experts and compiled for eMISK. The reports are in Excel.
 
 \textbf{Natural Reserves Section} monitors the designated natural reserve areas in Kuwait and its islands for poachers, damages, and encroachment. This section works with the Environment Police if there are incidents and only reports changes to (reductions or additions) to the reserves to eMISK.
+
+This department collects significant amounts of data but is not collecting necessary metadata such as animal location (ground, bush, tree, building), activity (eating, nesting, sleeping, flying, swimming, mating), sex (male/female), age (young, adolescent, young adult, mature), food (if eating), time of day, distance of observer. While these examples were biased to terrestrial fauna, similar categories of metadata can be collected for marine species. EQuIS can capture this information for each observation with minimal modification to the existing reference tables.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

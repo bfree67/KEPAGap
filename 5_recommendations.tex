@@ -1,11 +1,68 @@
 \chapter{Recommendations}
 
-\section{Software recommendations}
+\section{Recommendations for existing information systems}
+
+\subsection{Build or buy?}
+KEPA has invested heavily in both commercial software and in-house software (actual values of expenses were not available). In-house development includes developers with the eMISK organization as well as local third party developers who prepared custom solutions based on KEPA's specifications.
+
+While all software requires some form of customization once deployed for a specific client and purpose, commercial software has several advantages over in-house builds \citep{Shahzad2017}. Foremost, commercial software is generally less expensive to license and maintain, and faster to deploy then in-house builds that generally start from the beginning and go through multiple reviews and changes to meet client requirements. The developers of in-house solutions are rarely the subject matter experts or end users, while the end users usually have little experience in software design or requirements definition.
+
+Commercial software is more robust and has more functionality then in-house products. This is because the software companies have been able to incorporate enhancements based on recommendations from a broader range of users. As new functionality is included, the software improves for all users during each update release, as compared to in-house enhancements that require change orders or additional task funding. Commercial software has usually been tested more extensively with rigid quality controls and configuration management processes. User manuals and technical documentation is available and updated with each release. If a key programmer leaves, commercial software companies have continuity programs to insure continued support. Most commercial software also allows customization for specific features if required, as compared to building from new. An example of this is eMISK that has customized the ESRI ArcGIS solutions by adding different applications to support data uploading and visualization. Other KEPA commercial and in-house software is shown in Table \ref{tab:kepasw}. 
+
+\begin{table}[H]
+\centering
+\caption{Commercial and in-house build KEPA software.}
+\label{tab:kepasw}
+\begin{tabular}{@{}cc@{}}
+\toprule
+\textbf{Commercial} & \textbf{In-House} \\ \midrule
+AQMIS & ESS (Ozone Section) \\
+EQuIS & Chemicals (Chemical Mgmt Dept) \\
+Tableau & Violations (Inspections Section) \\
+ArcGIS & Project Mgmt (Planning Dept) \\ \bottomrule
+\end{tabular}
+\end{table}
+
+All the software developed in-house is either not being used or is undergoing major enhancements because the initial versions did not provide expandable functionality. It is highly recommended the KEPA invests in commercially available software instead of developing local solutions. Each of the in-house software requirements have several industry-accepted products.
+
+\subsection{EQuIS vs eMISK}
+
+A common perception encountered within the eMISK organization of KEPA was that the geodatabase used to support the GIS based analytics and visualizations were complete and infallible. Resistance was common to the idea that data in uploaded to the different attribute tables within the eMISK domains was incomplete, did not capture sufficient metadata and that any other software that supported data management was redundant to the internal work flows created by the eMISK team. If a data field was missing, it could be added to the attributes.
+
+For this reason, adoption of EQuIS as a supporting tool for data acquisition was not supported by eMISK team members. Lack of understanding of how EQuIS works and how it is fundamentally different from the eMISK data collection process was a major institutional gap with KEPA. EQuIS has data quality and collection functions that eMISK does not have (and could only be achieve by expensive and unnecessary software development that could infringe on intellectual property rights that the EQuIS manufacturers posses).  EQuIS can greatly enhance eMISK by providing a common platform and methodology to collect and submit data, validate it and provide technically correct data for furthe analysis.  Figure \ref{fig:datasummary} shows the fundamental differences in current data collection with EQuIS and eMISK. EQuIS capture individual observation results and associated metadata, while eMISK is currently only capturing monthly summaries.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/datasummary.png} 
+\caption{Differences in data sets collected by EQuIS and eMISK.}
+\label{fig:datasummary}
+\end{figure}
+
+With the example shown in Figure \ref{fig:datasummary}, the average value of Arsenic in eMISK does not provide insight to the supporting data. An analyst would not be able to identify the possible outlier in sample S00-08012007-001. While eMISK could be enhanced to collect individual observations and metadata, it would still have to validate and check data internally at the eMISK server. If errors are found, the eMISK analyst will have no idea how to correct it without going back to the generator of the original data set.
+
+EQuIS, on the other hand, pushes data validation to the generator of the data using the EDP as shown in Figure \ref{fig:equisprocess}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/equisprocess.png} 
+\caption{EQuIS process for data checking and validation.}
+\label{fig:equisprocess}
+\end{figure}
+
+EQuIS also provides a secure process to handle heavy data submittal volume from external stakeholders concerned with cybersecurity and data links. Data sets encrypted and emailed as attachments directly to the EQuIS enterprise server can accept, check and merge clean data autonomously, instead of manual uploading within the eMISK enterprise application suite.
+
+It is strongly recommended that KEPA embrace EQuIS as a solution to acquire and check data prior to submitting it to eMISK for analysis and visualization. There is no need for eMISK to replicate EQuIS's capabilities,considering the expense, time and possible law suits when the solution is already implemented, deployed and paid for.
+
+\subsection{Using AQMIS}
+
+AQMIS is a powerful tool that is also not understood by eMISK team members. AQMIS can be used to generate air emission inventories that can be pushed to eMISK by geographical location or business sector (see following section of ISIC adoption). Air dispersion model results can be saved in formats that can used as layers for GIS applications.
+
+While currently being used by the Air Quality and Follow-Up  Department, users from the Planning and EIA Development Department should use it as well for ESIA analysis. AQMIS uses base years for its analysis for both inventory calculations and dispersion modeling. Base years can be created for what-if scenarios specific for the Planning Department to evaluate how new projects can impact air quality using sources that local consultants may not have access to. AQMIS can also be used to evaluate the quality of air model results submitted by consultants.
+
+\subsection{Software recommendations}
 \begin{enumerate}
 \item Bring EQuIS maintenance up to date and use for all raw data collection and storage.
-\item Implement an online incident/spill reporting system.
-\item Adopt and utilize a common industrial code system such as the UN ISIC or NAIC for facilities processes.
-\item Adopt and utilize a common facility registration system that assigns a national registration number for each stakeholder. 
+\item Implement an online incident/spill reporting system. 
 \item Implement a compliance management system that tracks stakeholder registrations and permits.
 \item Provide access to eMISK products to government stakeholders such as EP and MOH.
 \item Implement a violation/case management system with KEPA/MOI/MOJ to share common case information.
@@ -15,12 +72,50 @@
 \item Upgrade AQMIS with Permit and Compliance modules.
 \end{enumerate}
 
-\section{Data processing recommendations}
+\section{Data processing and analysis}
+
+\subsection{The importance of  standard industrial codes and date error handling methods}
+Adoption of a common industrial sector code, such as ISIC, is essential as KEPA moves to provide more comprehensive  compliance activities. Different industrial sectors can be selected easier and allow enhanced comparisons against other national indicators by standardizing reporting. The adoption of a common sector code should be coordinated with all government agencies, such as CSB, PAI and PAAF, to insure a code assigned to one business is reflected throughout the government.
+
+Next to assigning common sector codes, establishing a common method to handle data error within a reported data set is critical to maintain data reporting standards. Data errors include format errors (character values in columns reserved for numbers), censored data (data reported as a value to represent lower than detectable levels), missing data, and outliers. There is not recommended correct way to handle these errors - just a consistent way.
+
+\subsection{Data flow recommendations}
+
+Figure \ref{fig:recommend1} shows the recommended data flow as compared to the existing process in Figure \ref{fig:existing}. Major differences include:
+\begin{itemize}
+\item{Use EQuIS to receive, check and validate data from internal and external stakeholders prior to pushing to eMISK domains.}
+\item{Have in-house programs(ESS, Chemical and Violations) submit monthly summary metrics to eMISK.}
+\item{Climate change section should use the Ttier 3 capabilities in AQMIS to prepare GHG inventories.}
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/recommend2.png} 
+\caption{Recommendation for new data work flow.}
+\label{fig:recommend1}
+\end{figure}
+
+\subsection{Using R for data analysis}
+Many statistical analysis software packages exist, but R and it's supporting interface, RStudio, as shown in Figure \ref{fig:rscreen}, is the most effective (and free!).  For most users, Excel will still be the primary source for analysis. Advanced users will most likely be statisticians or post-grad researchers that should have familiarity with simple programming languages and easily pick-up the R formats. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/rscreen.png} 
+\caption{Screen-shot of RStudio.}
+\label{fig:rscreen}
+\end{figure}
+
+If other users need to use the functions in R, scripts prepared by power-users can be prepared to allow the program to run and produce the necessary outputs and visualizations. While some training will be necessary to familiarize users to R, the same training would be necessary for packaged software -with the added expenses of license fees and annual maintenance.
+
+In addition to training on how to use R, emphasis should be placed on reviewing statistical analysis procedures of both choosing statistics, tests and interpretation of results. Fundamental understanding of statistics could not be quantified, by it appeared to be low.
+
+\subsection{Data processing recommendations}
 \begin{enumerate}
 \item Standardize email and website domain names to (@epa.kw.gov). 
 \item Issue standard methods for analysing water compliance levels.
+\item Adopt and utilize a common industrial code system such as the UN ISIC or NAIC for facilities processes.
+\item Adopt and utilize a common facility registration system that assigns a national registration number for each stakeholder.
 \item Issue agency procedures for handling missing data, censored data, and outliers.
-\item Install atmospheric pressure sensors in air monitoring stations.
 \item Issue CEMS installation requirements that include volume rate measurements.
 \item Issue ground water monitoring well installation specifications and sampling plan.
 \item Coordinate drinking water testing with KEPA/MEW/MOH and use common reporting platform (EQuIS).
@@ -41,14 +136,9 @@
 \item Install visibility sensors in air monitoring stations.
 \end{enumerate}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth,keepaspectratio]{images/recommend1.png} 
-\caption{Initial recommendation for new data work flow.}
-\label{fig:recommend1}
-\end{figure}
-
 \section{External stakeholder recommendations}
+Many discussions with external stakeholders (K-companies, private industry, other government agencies) provided additional observations not directly related to the gap analysis, but important to implementation of the EPL. These are included below:
+
 \begin{enumerate}
 \item Communicate technical documents in English with Arabic summary.
 \item Establish source registration program (but don’t call it permit – Existing Source Review/New Source Review).
@@ -105,10 +195,9 @@ Many of the recommendations refer back to using EQuIS for raw data submittal in 
 32 & Implement a compliance management system that tracks stakeholder registrations and permits. & 3 & 3 & 9 \\
 33 & Implement a violation/case management system with KEPA/MOI/MOJ to share common case information. & 3 & 3 & 9 \\
 34 & Standardize email and website domain names to (@epa.kw.gov). & 3 & 3 & 9 \\
-35 & Install atmospheric pressure sensors in air monitoring stations. & 3 & 3 & 9 \\
-36 & Modify IPCC emission factors for Kuwait feedstocks. & 3 & 3 & 9 \\
-37 & Prepare noise maps and sample ambient noise levels. & 3 & 3 & 9 \\
-38 & Provide VPN/secure Read-only access to eMISK for CSB and EP using Tableau. & 3 & 3 & 9 \\ \bottomrule
+35 & Modify IPCC emission factors for Kuwait feedstocks. & 3 & 3 & 9 \\
+36 & Prepare noise maps and sample ambient noise levels. & 3 & 3 & 9 \\
+37 & Provide VPN/secure Read-only access to eMISK for CSB and EP using Tableau. & 3 & 3 & 9 \\ \bottomrule
 \end{tabular}
 } %end resize
 \end{table}
