@@ -74,10 +74,17 @@ While currently being used by the Air Quality and Follow-Up  Department, users f
 
 \section{Data processing and analysis}
 
-\subsection{The importance of  standard industrial codes and date error handling methods}
+\subsection{The importance of  standardized codes and date error handling methods}
+Standardized codes for industrial sectors and analytical parameters such as chemicals 
+
+\subsubsection{Industrial codes}
 Adoption of a common industrial sector code, such as ISIC, is essential as KEPA moves to provide more comprehensive  compliance activities. Different industrial sectors can be selected easier and allow enhanced comparisons against other national indicators by standardizing reporting. The adoption of a common sector code should be coordinated with all government agencies, such as CSB, PAI and PAAF, to insure a code assigned to one business is reflected throughout the government.
 
+\subsubsection{Data error methods}
 Next to assigning common sector codes, establishing a common method to handle data error within a reported data set is critical to maintain data reporting standards. Data errors include format errors (character values in columns reserved for numbers), censored data (data reported as a value to represent lower than detectable levels), missing data, and outliers. There is not recommended correct way to handle these errors - just a consistent way.
+
+\subsubsection{Parameter codes for analysis and limits}
+Assigning CAS values to chemical parameters and pre-defined codes with non-chemical parameters is important when dealing with complex chemicals in multi-lingual environments. The CAS number for a specific chemical is less likely to be be misspelled than a common or proprietary compound and thus avoiding confusing and ambiguous interpretations, such as nitrite (CAS 14797-65-0), an ion of nitrogen dioxide, $NO^{-}_{2}$, and nitrate (CAS 14797-55-8) which is $NO^{-}_{3}$. These subtle changes in spelling and formulae may be lost if not identified using a common numeric code. The EQuIS EDD format includes this for all analytical parameters. For non-chemical parameters such as pH, total dissolved solids, there are pre-formatted codes such PH and TDS that can be recognized during data validation to make sure the proper test and results match the parameter.
 
 \subsection{Data flow recommendations}
 
