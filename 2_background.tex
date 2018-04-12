@@ -2,9 +2,9 @@
 
 \section{Data Quality and Statistical Analysis}
 
-Statistical analysis of time series and categorical data begins with the collection of raw data. Raw data comes from a sensor and includes several metadata parameters that describe where and how the data was collected. An example of a raw data source might be a nitrogen dioxide (NO$_{2}$ measuring instrument located at an air monitoring station. The monitor might read $20$ but without metadata, the reading is useless. Necessary metadata includes units ($ppb$), time average (1 hr), time of measurement (1pm - 2pm), day of measurement (15 Jan 2018), location of measurement (Ahmadhi station), and type of instrument (Environment SA chemiflourescent) at the very least.
+Statistical analysis of time series and categorical data begins with the collection of raw data. Raw data comes from a sensor and includes several metadata parameters that describe where and how data was collected. An example of a raw data source might be a nitrogen dioxide (NO$_{2}$ measuring instrument located at an air monitoring station. The monitor might read $20$ but without metadata, the reading is useless. Necessary metadata includes units ($ppb$), time average (1 hr), time of measurement (1pm - 2pm), day of measurement (15 Jan 2018), location of measurement (Ahmadhi station), and type of instrument (Environment SA chemiflourescent) at the very least.
 
-Since most raw data is collected autonomously, the data must be reviewed prior to incorporating the data into the historical dataset to identify data quality issues and errors. Typical errors that occur in data streams include:
+Since most raw data is collected autonomously, data must be reviewed prior to incorporating data into the historical dataset to identify data quality issues and errors. Typical errors that occur in data streams include:
 
 \begin{itemize}
 \item \textbf{Missing data.} If a measurement is not recorded due to the system being down or offline, the datalogger may record the time slot as a blank, thus introducing gaps in the data set. Missing data can be a problem if too many gaps exist, thus biasing summary statistics, such as averages, to represent the data recorded, not the actual population.
@@ -32,13 +32,13 @@ Raw data should first be checked for spelling errors and field violations. Once 
 Missing data is corrected using imputation techniques \citep{Horton2007, Ellington2015}. Many techniques exist, however the key to all data processes it consistency. If one technique is used on a dataset, the technique should be applied to the whole dataset. Similarly, there are several methods to replace censored measurements with a non-zero value in order to reduce summary biasing \citep{Helsel2011}.
 
 \subsection{Summary statistics}
-Most data consists of hundreds or thousands of individual data points. For time series data, the data also has sequential order. Since it is difficult to describe the the shape of the data, we use summary statistics to describe the major attributes of a data set. The set is predefined, such as a month's worth of one hour measurements, or an annual measurement. By defining the time scale of the data we want to describe, we also define the number of samples within that dataset.
+Most data consists of hundreds or thousands of individual data points. For time series data, the data also has sequential order. Since it is difficult to describe the shape of the data, we use summary statistics to describe the major attributes of a data set. The set is predefined, such as a month's worth of one hour measurements, or an annual measurement. By defining the time scale of the data we want to describe, we also define the number of samples within that dataset.
 
 Typical summary statistics include the sample set mean and standard deviation (s). The minimum and maximum value are also often given. The mean and s often assume that the underlying distribution is Normal, resembling a bell curve. This assumption, while not technically accurate, is often used if these statistics are provided without a distribution.
 
 As an example, Table \ref{tab:diffdata} shows the impact to the mean and s depending on the state of the raw data. The first column on the left shows the actual values of the sample set. The other three columns represent possible raw data scenarios of missing data, censored measurements (in this case the level of detection is $<$5), a combination of both missing and censored measurements. 
 
-\begin{table}[!htpb]
+\begin{table}[H]
 \centering
 \caption{Example of how summary statistics are impacted by data inputs.}
 \label{tab:diffdata}
@@ -92,7 +92,7 @@ The values have to be called estimates because the exact parameters that describ
 
 Examples of different skewness and kurtosis statistics in distributions is shown in Figure \ref{fig:distr}. Additionally, medians, skewness and kurtosis were calculated for the sample sets in Table \ref{tab:diffdata}. Without graphing the data values, it is clear that the sample is highly assymetrical since the means are not equal to the medians. These statistics can also be used to for statistical tests of data to see if the data is Normal. 
 %
-\begin{figure}[!htpb]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.5\linewidth,keepaspectratio]{images/aqz1.png} 
 \caption[Distributions with different Skewness and Kurtosis values.]{Distributions with different Skewness and Kurtosis values. The blue, solid line curve shows a normal distribution with $S$ = 0 and $K$ = 3. The green dot-dash line shows a Weibull distribution with $S$ = 1.7 and $K$ = 7.4.  The red dash line shows a log-normal distribution with $S$ = 4 and $K$ = 41. }
@@ -105,9 +105,9 @@ If data samples are not Normally distributed, other procedures should be used fo
 
 \section{EPL 42/2014}
 
-EPL 42/2014 came into force on 14 Oct 2014 and brought with it many changes. While before this law, the primary function of KEPA was monitoring and industrial inspections, after the law, the primary function of KEPA changed to enforcement and compliance. The law includes 181 articles divided into nine sections and preamble as as shown in Table \ref{tab:EPL}.
+EPL 42/2014 came into force on 14 Oct 2014 and brought with it many changes. While before this law, the primary function of KEPA was monitoring and industrial inspections, after the law, the primary function of KEPA changed to enforcement and compliance. The law includes 181 articles divided into nine sections and preamble as  shown in Table \ref{tab:EPL}.
 
-\begin{table}[!htpb]
+\begin{table}[H]
 \centering
 \caption{Summary of EPL structure.}
 \label{tab:EPL}
@@ -194,7 +194,7 @@ The severity of fines requires that due diligence be accomplished prior to convi
 
 \subsection{By-laws and regulations}
 
-By-laws referred to in the original EPL were incrementally released from 2015 - 2017 as shown in Table \ref{tb:regulations}. The regulations were prepared to provide guidance for specific media and industries.
+By-laws referred to in the original EPL were incrementally released between 2015 - 2017 as shown in Table \ref{tb:regulations}. The regulations were prepared to provide guidance for specific media and industries.
 
 \begin{table}[H]
 \centering
@@ -318,4 +318,4 @@ A basic summary of the different EISs currently in use at KEPA is shown in Figur
 \end{figure}
 %
 
-Figure \ref{fig:existing} shows that the systems in use do not communicate with each other, either directly (as with the air stations and the Envista ARM) or via spreadsheets. In some cases, the data submittal is duplicated, such as where the summary data from the Central Lab goes directly to eMISK, while the raw data is sent to EQuIS via EDP checking. Several of the individual EISs do not link with eMISK at all, requiring hard-copy requests for reports if data sets are required.
+Figure \ref{fig:existing} shows that the systems in use do not communicate with each other, either directly (as with the air stations and the Envista ARM) or via spreadsheets. In some cases, data submittal is duplicated, such as where the summary data from the Central Lab goes directly to eMISK, while the raw data is sent to EQuIS via EDP checking. Several of the individual EISs do not link with eMISK at all, requiring hard-copy requests for reports if data sets are required.
